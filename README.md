@@ -1,6 +1,6 @@
-# BlueStar AI Agents
+# BlueStar Agent Dojo
 
-BlueStar社におけるAIエージェントの定義、設計、および設定を一元管理するリポジトリです。
+BlueStar社におけるAIエージェントの定義、設計、および設定を一元管理するリポジトリ（道場）です。
 特定のAIツール（Gemini CLI, Claude Code, Cursor, GitHub Copilot等）に依存しない「コア定義」を管理し、そこから各ツールへの適用を行います。
 
 ## ディレクトリ構造

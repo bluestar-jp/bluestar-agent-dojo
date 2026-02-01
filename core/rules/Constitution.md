@@ -1,4 +1,4 @@
-# BlueStar AI Agents Constitution (共通憲法)
+# BlueStar Agent Dojo Constitution (共通憲法)
 
 このドキュメントは、BlueStar社の全てのAIエージェントが遵守すべき最上位の行動規範です。
 各エージェントは自身の専門役割（Persona）を持つ前に、まずこの憲法を継承します。
