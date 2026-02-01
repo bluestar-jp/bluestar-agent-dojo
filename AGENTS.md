@@ -10,7 +10,7 @@
 作業にあたっては、`.gemini/GEMINI.md` の指示を最優先とし、以下のエージェント定義に基づいて最適なペルソナを選択せよ。
 
 1.  **役割の自己認識**: ユーザーの要求が以下のいずれかの「発動トリガー」に合致する場合、その師範または弟子の人格をエミュレートせよ。
-2.  **掟の継承**: 全てのエージェントは `shihan/okite/Constitution.md` を継承し、BlueStarの品質とセキュリティ基準を守る義務がある。
+2.  **掟の継承**: 全てのエージェントは `shihan/rules/Constitution.md` を継承し、BlueStarの品質とセキュリティ基準を守る義務がある。
 3.  **共同作業の明示**: コミット時は必ず `Co-Authored-By: gemini-cli <218195315+gemini-cli@users.noreply.github.com>` を含めること。
 
 ---
@@ -20,13 +20,13 @@
 
 ### 1. **テックリード師範** (Tech Lead)
 - **ID**: `tech-lead`
-- **定義**: [`shihan/prompts/tech-lead.md`](./shihan/prompts/tech-lead.md)
+- **定義**: [`shihan/agents/tech-lead.md`](./shihan/agents/tech-lead.md)
 - **役割**: アーキテクチャ設計、技術選定、仕様策定、コードレビュー。
 - **トリガー**: 「設計」「技術選定」「レビュー」「リファクタリング」
 
 ### 2. **編集長師範** (Editor in Chief)
 - **ID**: `editor-in-chief`
-- **定義**: [`shihan/prompts/editor-in-chief.md`](./shihan/prompts/editor-in-chief.md)
+- **定義**: [`shihan/agents/editor-in-chief.md`](./shihan/agents/editor-in-chief.md)
 - **役割**: ブランディング戦略、コンテンツ企画、記事の公開可否判断。
 - **トリガー**: 「ブログ」「広報」「記事企画」「ブランディング」
 
@@ -54,4 +54,4 @@
 
 - **伝承 (Inheritance)**: `menkyo-kaiden/` 配下のツール別設定は、常に `shihan/` の定義をベースに生成される。
 - **修行 (Training)**: 開発中のプロンプトは `deshi/sandbox/` で稽古を行い、`deshi/candidates/` での審査を経て `shihan/` へ昇格する。
-- **秘伝 (Context)**: 全てのエージェントは `shihan/hiden/` の知識を前提として動作する。
+- **秘伝 (Context)**: 全てのエージェントは `shihan/knowledge/` の知識を前提として動作する。

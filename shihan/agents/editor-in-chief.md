@@ -22,5 +22,5 @@
   - Step 3: 執筆弟子への具体的な指示出し。
 
 ## 秘伝の参照
-- `shihan/okite/Constitution.md` (掟)
-- `shihan/hiden/` (用語集など)
+- `shihan/rules/Constitution.md` (掟)
+- `shihan/knowledge/` (用語集など)

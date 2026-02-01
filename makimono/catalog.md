@@ -11,7 +11,7 @@
 
 | 名前 | 階級 | 概要・役割 | 定義ファイル |
 | :--- | :--- | :--- | :--- |
-| **テックリード** | 師範 | **【司令塔】** 技術選定、アーキテクチャ設計。 | [`shihan/prompts/tech-lead.md`](../shihan/prompts/tech-lead.md) |
+| **テックリード** | 師範 | **【司令塔】** 技術選定、アーキテクチャ設計。 | [`shihan/agents/tech-lead.md`](../shihan/agents/tech-lead.md) |
 | **フロントエンド・コーダー** | 弟子 | UI実装特化。 | *未実装* |
 | **バックエンド・コーダー** | 弟子 | API/DB設計特化。 | *未実装* |
 
@@ -25,7 +25,7 @@
 
 | 名前 | 階級 | 概要・役割 | 定義ファイル |
 | :--- | :--- | :--- | :--- |
-| **編集長 (Editor in Chief)** | 師範 | **【司令塔】** 記事の企画、品質管理。 | [`shihan/prompts/editor-in-chief.md`](../shihan/prompts/editor-in-chief.md) |
+| **編集長 (Editor in Chief)** | 師範 | **【司令塔】** 記事の企画、品質管理。 | [`shihan/agents/editor-in-chief.md`](../shihan/agents/editor-in-chief.md) |
 | **テックブログ記述** | 弟子 | 技術記事執筆。 | *未実装* |
 | **テックブログレビュー** | 弟子 | 記事のファクトチェック、校正。 | *未実装* |
 

@@ -5,7 +5,7 @@
 ## 審査項目
 
 ### 1. 掟の遵守 (Constitution Check)
-- [ ] `shihan/okite/Constitution.md` の内容と矛盾する指示が含まれていないか。
+- [ ] `shihan/rules/Constitution.md` の内容と矛盾する指示が含まれていないか。
 - [ ] 特にセキュリティ、プライバシーに関するガードレールが機能しているか。
 
 ### 2. 専門性の確立 (Role Definition)
@@ -23,4 +23,4 @@
 ## 昇格フロー
 1. `deshi/candidates/` にプロンプトを配置し、Pull Requestを作成。
 2. 既存の師範（管理者）によるレビュー。
-3. マージ後、`shihan/prompts/` へ移動し、`makimono/catalog.md` を更新。
+3. マージ後、`shihan/agents/` へ移動し、`makimono/catalog.md` を更新。
