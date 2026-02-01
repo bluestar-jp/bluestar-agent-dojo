@@ -1,0 +1,27 @@
+{
+  "name": "bluestar-dojo-extension",
+  "version": "1.0.0",
+  "description": "BlueStar Dojoの師範エージェントをGemini CLIで利用するための公式Extension",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node scripts/sync-prompts.js && tsc",
+    "watch": "tsc -w",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "gemini-cli",
+    "extension",
+    "agent-dojo"
+  ],
+  "author": "BlueStar Dojo <gemini-cli@bluestar.example.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "gemini": {
+    "permissions": [
+      "file_system"
+    ]
+  }
+}
