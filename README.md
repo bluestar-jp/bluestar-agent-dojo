@@ -1,4 +1,4 @@
-# BlueStar Agent Dojo
+# エージェント道場
 
 BlueStarにおけるAIエージェントの定義、設計、および設定を一元管理するリポジトリ「道場」です。
 特定のAIツール（Gemini CLI, Claude Code, Cursor, GitHub Copilot等）に依存しない「コア定義」を管理し、そこから実用的な設定へと昇華させます。
