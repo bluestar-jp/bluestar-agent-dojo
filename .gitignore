@@ -1,0 +1,15 @@
+# OS & Editors
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# AI Tools specific
+.cursorrules # 生成されるファイルは除外する場合があるが、今回はGit管理対象にするか運用による。一旦除外せず。
+.gemini/history/ # Gemini CLIの履歴などは除外
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
