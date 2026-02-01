@@ -37,6 +37,6 @@
   - `chore:` ビルドプロセスやツールの変更
 - **Co-authoring**: AI（Gemini等）がコードやドキュメントを生成・修正してコミットする場合、必ずコミットメッセージの末尾に以下のトレーラーを含め、共同作業であることを明示する。
   ```text
-  Co-authored-by: Gemini <gemini@google.com>
+  Co-Authored-By: gemini-cli <218195315+gemini-cli@users.noreply.github.com>
   ```
 
