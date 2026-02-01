@@ -52,6 +52,6 @@
 
 ## 🔗 連携と昇格 (Lifecycle)
 
-- **伝承 (Inheritance)**: `menkyo-kaiden/` 配下のツール別設定は、常に `shihan/` の定義をベースに生成される。
+- **伝承 (Inheritance)**: `menkyokaiden/` 配下のツール別設定は、常に `shihan/` の定義をベースに生成される。
 - **修行 (Training)**: 開発中のプロンプトは `deshi/agents/` 等で稽古（実験）を行い、審査を経て `shihan/` へ昇格する。
 - **秘伝 (Context)**: 全てのエージェントは `shihan/knowledge/` の知識を前提として動作する。

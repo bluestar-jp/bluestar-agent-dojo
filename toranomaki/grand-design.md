@@ -31,4 +31,4 @@ graph TD
 - **zatsunomaki/**: 合意形成前の壁打ちメモや思考の断片を置くワークスペース（雑の巻）。
 - **shihan/**: 変更頻度が低く、高い信頼性が求められるコア定義。
 - **deshi/**: 開発中や実験的な定義。`shihan` と同じ構成を持ち、昇格を待つプロンプトを管理。
-- **menkyo-kaiden/**: これら自然言語の定義を、Gemini CLIやCursorなどのツール設定ファイル（JSON/YAML等）に変換した結果。
+- **menkyokaiden/**: これら自然言語の定義を、Gemini CLIやCursorなどのツール設定ファイル（JSON/YAML等）に変換した結果。
