@@ -23,4 +23,4 @@
 ## 昇格フロー
 1. `deshi/candidates/` にプロンプトを配置し、Pull Requestを作成。
 2. 既存の師範（管理者）によるレビュー。
-3. マージ後、`shihan/agents/` へ移動し、`makimono/catalog.md` を更新。
+3. マージ後、`shihan/agents/` へ移動し、`toranomaki/catalog.md` を更新。
