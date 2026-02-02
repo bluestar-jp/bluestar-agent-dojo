@@ -3,11 +3,13 @@
 新しいスキルを作成する際の初期コマンドセットです。
 
 ## ディレクトリ作成
+
 ```bash
 mkdir -p {skill-name}/{scripts,references,assets}
 ```
 
 ## SKILL.md テンプレート
+
 ```markdown
 ---
 name: {skill-name}

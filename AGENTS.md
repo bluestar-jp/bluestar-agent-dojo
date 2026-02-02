@@ -14,6 +14,7 @@
 プロジェクトは以下のディレクトリ構造に基づいて知識と機能を管理する。
 
 ### 2.1 巻物 (makimono - 共有リソース)
+
 全エージェントが共有する知識と手順の基盤。
 
 - **竜の巻 (ryunomaki - 知識)**: `makimono/ryunomaki/`
@@ -30,12 +31,15 @@
   - Conditional Instructions: 条件分岐と判断基準。
 
 ### 2.2 スキル (skills - エージェントスキル)
+
 特定のタスクを実行するための定義ファイル群。虎の巻の分類に基づきプレフィックスを付与する。
+
 - `skills/proc-*`: 手順型スキル (Procedure) - 一連のワークフローを実行する。
 - `skills/action-*`: 単一アクション型スキル (Single Action) - 特定の単一タスクを実行する。
 - `skills/cond-*`: 条件判断型スキル (Conditional Instructions) - 状況に応じた判断を行う。
 
 ### 2.3 エージェント (agents - サブエージェント)
+
 特定の役割を持つ専門エージェント。役割に基づきプレフィックスを付与する。
 
 - **師範 (shihan - 統合型)**: `agents/shihan-*`
@@ -63,9 +67,13 @@
   - 例: `proc-creating-skills-skill`
 - **ファイル名**: スネークケース (例: `skill_creation_workflow.md`)。
 - **ファイルヘッダー**: すべてのMarkdownファイルは以下の形式で開始すること。
+
+  ```markdown
   # [TITLE]
+
   - Purpose: [目的の簡潔な記述]
   - Scope: [適用範囲]
+  ```
 
 ## 4. 実行プロトコルおよび例外処理
 
