@@ -1,15 +1,18 @@
 # Project Summary: BlueStar Agent Dojo
 
-## 目的
-BlueStarにおけるAIエージェントの定義、設計、設定を一元管理するリポジトリ。「道場」として、エージェントの定義（プロンプト）を管理・育成する。特定のAIツールに依存しないコア定義を目指す。
+## Purpose
+AIエージェントの「道場」として、BlueStarエコシステムにおける自律型エージェントの定義、ペルソナ、知識、行動規範を一元管理・育成するためのリポジトリです。特定のツールに依存しないコア定義を保持し、実用的な設定へと変換します。
 
-## 構造
-*   **shihan/** (師範): 正規・安定版 (Stable) の定義。
-*   **deshi/** (弟子): 実験・開発版 (Experimental) の定義。
-*   **toranomaki/** (虎の巻): 全体設計、ルール等の正本ドキュメント。
-*   **zatsunomaki/** (雑の巻): アイデア、草稿。
-*   **menkyokaiden/** (免許皆伝): ツール用設定ファイルへの変換成果物。
+## Architecture
+カスタムスキルを「知識（龍の巻）」と「指示（虎の巻）」の2つの軸で構成します：
+1. **龍の巻 (Ryu-no-maki) - 知識型**: コンテキスト、ガイドライン、リファレンスなどの静的なナレッジ。
+2. **虎の巻 (Tora-no-maki) - 指示型**: 単一アクション、プロシージャ、条件付指示などの動的なアクション定義。
 
-## 技術スタック
-*   Markdown (.md): ドキュメントおよびエージェント定義。
-*   YAML (.yml): プロジェクト設定。
+## Directory Structure
+- `skills/ryu_no_maki/`: 知識型スキルの定義（context, guidelines, references）。
+- `skills/tora_no_maki/`: 指示型スキルの定義（single_action, procedure, conditional_instructions）。
+- `menkyokaiden/`: 各種AIツール向けの設定ファイル出力先。
+
+## Core Documents
+- `README.md`: プロジェクト全体の概要。
+- `skills/ryu_no_maki/guidelines/`: スキル開発・運用における共通ガイドライン。
