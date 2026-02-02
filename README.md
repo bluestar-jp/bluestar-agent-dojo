@@ -25,9 +25,25 @@ BlueStarのエコシステムを支える自律型AIエージェントの道場�
 
 特定のタスク、ドメインに関連した専門知識を持ち、指示に従って行動します。
 
+- **Knowledge (知識)**: `agents/deshi/knowledge/`
+  - 特定のドメインやタスクに必要な背景知識や専門データ。
+- **Rules (規約)**: `agents/deshi/rules/`
+  - 弟子が遵守すべき特定の動作ルール、制約、振る舞いの定義。
+- **Collection (収集)**: `agents/deshi/collection/`
+  - 外部ソースからの情報収集やデータ抽出のプロトコル。
+- **Generation (生成)**: `agents/deshi/generation/`
+  - コード、ドキュメント、コンテンツの生成ガイドライン。
+- **Verification (検証)**: `agents/deshi/verification/`
+  - 成果物の妥当性、正確性、品質を担保するためのテスト・評価。
+
 ### 👴 師範（shihan） - 統合型エージェント
 
 複数の弟子エージェントを管理し、全体の戦略立案やタスクの割り当てを行います。
+
+- **Routing (ルーティング)**: `agents/shihan/routing/`
+  - ユーザーの要求を分析し、最適な弟子エージェントへタスクを振り分けるロジック。
+- **Parallel (並列制御)**: `agents/shihan/parallel/`
+  - 複数の弟子を並列に動作させ、結果を統合するためのオーケストレーション。
 
 
 ## 🏗 カスタムエージェントスキル
