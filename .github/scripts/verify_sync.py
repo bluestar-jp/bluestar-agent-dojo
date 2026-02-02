@@ -13,7 +13,7 @@ def verify_sync():
     
     errors = []
 
-    # 1. Check Agents
+    # 1. エージェントのチェック
     if agents_dir.exists():
         for sot_file in agents_dir.glob("*.md"):
             if not sot_file.is_file():
@@ -25,7 +25,7 @@ def verify_sync():
             name = sot_file.name
             ref_string = f"@agents/{name}"
             
-            # Gemini check
+            # Gemini のチェック
             g_adapter = gemini_agents / name
             if not g_adapter.exists():
                 errors.append(f"[Missing Gemini Agent Adapter] {g_adapter}")
@@ -34,7 +34,7 @@ def verify_sync():
             elif ref_string not in g_adapter.read_text():
                 errors.append(f"[Invalid Reference in Gemini Agent] {g_adapter} (Expected: {ref_string})")
 
-            # Claude check
+            # Claude のチェック
             c_adapter = claude_agents / name
             if not c_adapter.exists():
                 errors.append(f"[Missing Claude Agent Adapter] {c_adapter}")
@@ -43,7 +43,7 @@ def verify_sync():
             elif ref_string not in c_adapter.read_text():
                 errors.append(f"[Invalid Reference in Claude Agent] {c_adapter} (Expected: {ref_string})")
 
-    # 2. Check Skills
+    # 2. スキルのチェック
     if skills_dir.exists():
         for sot_file in skills_dir.glob("*.md"):
             if not sot_file.is_file():
@@ -53,10 +53,10 @@ def verify_sync():
                 continue
 
             name = sot_file.name
-            skill_slug = sot_file.stem # e.g. proc-creating-skills-skill
+            skill_slug = sot_file.stem # 例: proc-creating-skills-skill
             ref_string = f"@skills/{name}"
             
-            # Gemini check (Directory based)
+            # Gemini のチェック (ディレクトリベース)
             g_adapter_dir = gemini_skills / skill_slug
             g_adapter_file = g_adapter_dir / "SKILL.md"
             if not g_adapter_file.exists():
@@ -66,7 +66,7 @@ def verify_sync():
             elif ref_string not in g_adapter_file.read_text():
                 errors.append(f"[Invalid Reference in Gemini Skill] {g_adapter_file} (Expected: {ref_string})")
 
-            # Claude check
+            # Claude のチェック
             c_adapter = claude_skills / name
             if not c_adapter.exists():
                 errors.append(f"[Missing Claude Skill Adapter] {c_adapter}")
