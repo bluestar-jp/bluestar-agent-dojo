@@ -6,15 +6,14 @@ BlueStarのエコシステムを支える自律型AIエージェントの道場�
 ## 📂 ディレクトリ構成
 
 ```text
-bluestar-agent-dojo/
+.
 ├── agents/             # サブエージェント
-│   ├── deshi/          # 弟子のライフサイクル定義
-│   └── shihan/         # 師範の統率定義
+│   ├── deshi/          # 弟子: 専門型エージェント
+│   └── shihan/         # 師範: 統合型エージェント
 ├── skills/             # エージェントスキル
-│   ├── ryu_no_maki/    # 龍の巻（知識型）
-│   └── tora_no_maki/   # 虎の巻（指示型）
-├── menkyokaiden/       # 各種AIツール向けの設定ファイル出力先
-└── .serena/            # serena MCP関連リソース
+│   ├── ryu_no_maki/    # 龍の巻: 知識型スキル
+│   └── tora_no_maki/   # 虎の巻: 指示型スキル
+└── menkyokaiden/       # 各種AIエージェント向けの変換用リソース
 ```
 
 ## 🤖 カスタムサブエージェント
