@@ -6,4 +6,3 @@ description: カスタムエージェントスキルの設計、構築、最適�
 # proc-creating-skills-skill
 
 @skills/proc-creating-skills-skill.md
-
