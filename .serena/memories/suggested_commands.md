@@ -1,9 +1,17 @@
 # Suggested Commands
 
-## General
-*   `git status`: 変更状況の確認
-*   `git add .`: 変更のステージング
-*   `git commit -m "prefix: message" -m "Co-Authored-By: ..."`: コミット（Co-Authored-Byを忘れないこと）
+## Environment & Development
+- **環境作成**: `container-use create --source . --title "Task Name"`
+- **ログ確認**: `container-use log <env_id>`
+- **成果物適用**: `container-use checkout <env_id>`
 
-## Project Specific
-*   現状、ビルドやテストのスクリプトは定義されていないため、Markdownファイルの編集とGit操作が主となる。
+## File Operations (Darwin/Unix)
+- **検索**: `grep -r "pattern" skills/`
+- **構造確認**: `ls -R skills/`
+- **ファイル作成**: `touch skills/...`
+
+## Git Workflow
+- **状態確認**: `git status`
+- **差分確認**: `git diff HEAD`
+- **コミット**: `git commit -m "prefix: message"` (Prefix: feat, fix, docs, refactor, chore)
+- **プッシュ**: `git push origin main`
