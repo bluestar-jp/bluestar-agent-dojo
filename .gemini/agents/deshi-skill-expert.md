@@ -10,4 +10,6 @@ tools:
   - run_shell_command
 ---
 
+# deshi-skill-expert
+
 @agents/deshi-skill-expert.md
