@@ -73,6 +73,19 @@ AIエージェントが参照する共有リソースです。
 - **Conditional (`cond-*-skill`)**: 状況に応じて分岐する高度なロジック。
 
 
+## ✅ 整合性検証
+
+各プラットフォーム（Gemini, Claude）向けのアダプターファイルとSoT（Source of Truth）ファイルの同期状態を検証するためのスクリプトが用意されています。
+
+### ローカルでの実行
+```bash
+python3 .github/scripts/verify_sync.py
+```
+
+### CI (GitHub Actions)
+GitHubへのプッシュおよびプルリクエスト時に、`.github/workflows/verify-sync.yml` によって自動的に検証が実行されます。
+
+
 ## 📜 ライセンス
 
 [Apache License 2.0](./LICENSE)
