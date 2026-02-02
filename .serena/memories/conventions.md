@@ -1,27 +1,19 @@
-# Conventions & Rules (Constitution)
+# Style and Conventions
 
-## 基本方針
-*   **言語**: ユーザーへの出力は**日本語**。
-*   **安全性**: セキュリティ脆弱性排除、機密情報保護。
-*   **正直さ**: 幻覚防止、引用明示。
+## Communication
+- **言語**: ユーザーへの最終出力は常に**日本語**。思考プロセス（Thought）には英語を使用可能。
+- **態度**: 常にプロフェッショナルで、ハルシネーション（嘘）を避け、不明な点は「不明」と正直に伝える。
 
-## Git / Commit Rules
-*   **言語**: コミットメッセージは**日本語**。
-*   **Prefix** (Conventional Commits):
-    *   `feat:` 新機能
-    *   `fix:` バグ修正
-    *   `docs:` ドキュメント
-    *   `style:` フォーマット
-    *   `refactor:` リファクタリング
-    *   `chore:` その他
-*   **Co-authoring Trailer (必須)**:
-    AIによる変更を含むコミットには必ず以下を含めること。
-    ```text
-    Co-Authored-By: gemini-cli <218195315+gemini-cli@users.noreply.github.com>
-    ```
+## Development Rules
+- **DRY & KISS**: コードや定義は重複を避け、単純さを保つ。
+- **Security**: セキュリティ脆弱性の排除を徹底し、機密情報を外部に出さない。
 
-## Lifecycle
-1.  `zatsunomaki` (雑の巻) でアイデア出し。
-2.  `deshi` (弟子) でプロンプト作成・テスト。
-3.  `shihan` (師範) / `toranomaki` (虎の巻) へ昇格。
-4.  `menkyokaiden` (免許皆伝) へ出力。
+## Git Conventions
+- **コミットメッセージ**: **日本語**で記述する。
+- **Prefix**: Conventional Commits準拠（`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`）。
+- **Co-authoring**: AIによるコミットには必ず以下を末尾に含める：
+  `Co-Authored-By: gemini-cli <218195315+gemini-cli@users.noreply.github.com>`
+
+## Directory Conventions
+- 新しいカスタムスキルの定義は `skills/` 配下の適切なカテゴリ（龍の巻・虎の巻）に追加する。
+- 知識型（知識・背景）は `ryu_no_maki/`、指示型（手順・動作）は `tora_no_maki/` に分類する。
