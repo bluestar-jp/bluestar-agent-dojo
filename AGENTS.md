@@ -92,8 +92,16 @@
   - `feat:`: 新機能の追加
   - `fix:`: バグ修正
   - `chore:`: ビルドプロセスやドキュメント、ツールの変更（ソースコード以外）
+<<<<<<< Updated upstream
   - `refactor:`: リファクタリング（機能追加やバグ修正を伴わないコード変更）
 
 - **Co-authored-by**: AIアシスタントを使用した場合は、以下の形式でトレーラーを含めること。
   - Gemini CLI使用時: `Co-authored-by: gemini-cli <218195315+gemini-cli@users.noreply.github.com>`
   - Claude Code使用時: `Co-authored-by: claude <claude@anthropic.com>`
+=======
+  - `refactor:`: バグ修正や機能追加を含まないコードの変更
+
+- **Co-authored-by**: AIアシスタントを使用した場合は、以下の形式でトレーラーを含めること。
+  - Gemini CLI使用時: `Co-authored-by: gemini-cli {model} <gemini-cli@google.com>`
+  - Claude Code使用時: `Co-authored-by: Claude {model} <noreply@anthropic.com>`
+>>>>>>> Stashed changes
