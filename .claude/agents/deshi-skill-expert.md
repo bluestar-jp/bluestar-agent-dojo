@@ -5,4 +5,6 @@ skills:
   - proc-creating-skills-skill
 ---
 
+# deshi-skill-expert
+
 @agents/deshi-skill-expert.md
