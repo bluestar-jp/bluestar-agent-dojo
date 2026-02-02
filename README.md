@@ -27,10 +27,21 @@ BlueStarのエコシステムを支える自律型AIエージェントの「道�
 - **Conditional Instructions (条件付指示)**: `skills/tora_no_maki/conditional_instructions/`
   - 状況やフィードバックに応じて分岐・ループする高度なロジック。
 
+### 3. 🤖 エージェント・コア (Agent Core)
+エージェントの基本動作や役割に応じた構成を定義します。
+
+- **弟子 (Deshi)**: `agents/deshi/`
+  - 自律的な学習とタスク実行のコア。収集、生成、検証などのライフサイクルを管理。
+- **師範 (Shihan)**: `agents/shihan/`
+  - 複数の弟子やスキルの統率、ルーティング、並列処理の最適化。
+
 ## 📂 ディレクトリ構成
 
 ```text
 bluestar-agent-dojo/
+├── agents/             # エージェント・コアの定義（弟子・師範）
+│   ├── deshi/          # 弟子のライフサイクル定義
+│   └── shihan/         # 師範の統率定義
 ├── skills/
 │   ├── ryu_no_maki/    # 龍の巻（知識型）
 │   └── tora_no_maki/    # 虎の巻（指示型）
