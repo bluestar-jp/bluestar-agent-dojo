@@ -18,7 +18,6 @@ bluestar-agent-dojo/
 └── menkyokaiden/       # 各種AIエージェント向けの変換用リソース
 ```
 
-
 ## 🤖 カスタムサブエージェント
 
 サブエージェントを役割に基づき「弟子」と「師範」に分類し、`[role]-[specialty]` の形式で管理します。
@@ -49,18 +48,21 @@ bluestar-agent-dojo/
 - **Sequential (シーケンシャル制御)**: `agents/shihan-*/sequential/`
   - 複数の弟子を順番に動作させ、前のステップの結果を次の弟子へ引き継ぐ直列的なワークフロー。
 
-
 ## 📜 巻物（Shared Makimono）
 
 AIエージェントが参照する共有リソースです。
 
 ### 🐉 龍の巻 (ryunomaki) - 知識型
+
 エージェントが判断を下すための背景情報、ルール、専門知識。
+
 - `makimono/ryunomaki/guidelines/`: ベストプラクティス、設計原則。
 - `makimono/ryunomaki/specs/`: 技術仕様、APIリファレンス。
 
 ### 🐯 虎の巻 (toranomaki) - 手順型
+
 エージェントが実行すべき具体的なアクションやワークフローの雛形。
+
 - `makimono/toranomaki/procedure/`: マルチステップなプロシージャ。
 - `makimono/toranomaki/single_action/`: 単一のタスク定義。
 
@@ -72,11 +74,9 @@ AIエージェントが参照する共有リソースです。
 - **Single Action (`action-*-skill`)**: 単一のアクションを実行するスキル。
 - **Conditional (`cond-*-skill`)**: 状況に応じて分岐する高度なロジック。
 
-
 ## 📜 ライセンス
 
 [Apache License 2.0](./LICENSE)
-
 
 ## 📝 免責事項
 
