@@ -16,7 +16,8 @@ def verify_sync():
     # 1. Check Agents
     if agents_dir.exists():
         for sot_file in agents_dir.glob("*.md"):
-            if not sot_file.is_file(): continue
+            if not sot_file.is_file():
+                continue
             content = sot_file.read_text()
             if "TODO:" in content:
                 continue
@@ -45,7 +46,8 @@ def verify_sync():
     # 2. Check Skills
     if skills_dir.exists():
         for sot_file in skills_dir.glob("*.md"):
-            if not sot_file.is_file(): continue
+            if not sot_file.is_file():
+                continue
             content = sot_file.read_text()
             if "TODO:" in content:
                 continue
