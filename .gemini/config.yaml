@@ -27,6 +27,34 @@ workflows:
       - ".gemini/ または .claude/ にアダプターファイルを配置し、SoTを @ 記法で参照する"
       - "scripts/verify_sync.py で整合性を確認する"
 
+  code_review:
+    description: "4観点並列コードレビューワークフロー"
+    steps:
+      - "レビュー対象の差分を特定（git diff）"
+      - "プロジェクトコンテキスト情報を収集（.gemini/context.md）"
+      - "proc-reviewing-code-skill スキルを起動"
+      - "4つの観点（フロントエンド、バックエンド、インフラ、セキュリティ）で並列レビュー"
+      - "結果をJSON形式で統合して表示"
+
+# エージェントとスキルの定義
+agents:
+  - name: deshi-code-reviewer
+    path: "agents/deshi-code-reviewer.md"
+    description: "コードレビューの専門家。4つの観点から並列レビューを実行。"
+    related_skills:
+      - proc-reviewing-code-skill
+
+skills:
+  - name: proc-reviewing-code-skill
+    path: "skills/proc-reviewing-code-skill/SKILL.md"
+    description: "Git差分を4観点で並列レビューし、JSON形式で報告。"
+    dependencies:
+      - gemini-cli (headless mode required)
+      - git
+      - jq (for JSON validation)
+      - timeout (for process control)
+      - python3 (for orchestration)
+
 # モデルの振る舞いに関する指示
 instructions:
   - "回答やコメントは、常に日本語で行ってください。"
