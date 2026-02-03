@@ -1,6 +1,7 @@
 # bluestar-agent-dojo
 
 BlueStarのエコシステムを支える自律型AIエージェントの道場です。
+Claude Codeを中心に設計され、複数のAIツールをサポートします。
 本プロジェクトでは、全エージェントで共有する知見を「巻物（makimono）」として集約し、それを活用するサブエージェント（「師範」と「弟子」）、および具体的なタスクを実行するエージェントスキルを定義することで、AIエージェントの自律性を実現させるために鍛錬を行います。
 
 ## 📂 ディレクトリ構成
@@ -10,13 +11,29 @@ bluestar-agent-dojo/
 ├── makimono/           # 巻物: 全エージェント共有の知識と手順
 │   ├── ryunomaki/      # 龍の巻: 知識型リソース
 │   └── toranomaki/     # 虎の巻: 指示型リソース
-├── agents/             # サブエージェント
+├── agents/             # サブエージェント（SoT）
 │   ├── deshi-*/        # 弟子: 専門型エージェント
 │   └── shihan-*/       # 師範: 統合型エージェント
-├── skills/             # エージェントスキル
+├── skills/             # エージェントスキル（SoT）
 │   └── [type]-*-skill/ # 具体的なスキル定義
-└── menkyokaiden/       # 各種AIエージェント向けの変換用リソース
+├── .claude/            # Claude Code向けアダプター
+│   ├── agents/         # エージェントの適用定義
+│   ├── skills/         # スキルの適用定義
+│   ├── config.yaml     # プロジェクト設定
+│   └── settings.json   # メタデータ
+├── .gemini/            # 今後のレビュー用（今回は変更なし）
+├── menkyokaiden/       # プロンプト管理の運用ルール
+└── CLAUDE.md           # Claude Code向けシステムプロンプト
 ```
+
+## 🛠️ 対応AIツール
+
+本プロジェクトは**Claude Code**専用に設計されています。
+
+### SoT原則
+
+プロンプトの実体は `agents/` と `skills/`。
+`.claude/`ディレクトリには参照のみ。詳細: `menkyokaiden/README.md`
 
 ## 🤖 カスタムサブエージェント
 
