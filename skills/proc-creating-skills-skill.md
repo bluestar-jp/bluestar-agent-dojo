@@ -7,7 +7,7 @@
 ### 1. 知識の想起 (Analyze)
 
 - 常に `makimono/ryunomaki/guidelines/custom_agent_skill_best_practices.md` のベストプラクティスを意識してください。
-- 実装の詳細仕様については `makimono/ryunomaki/specs/gemini_cli_specs.md` を参照します。
+- 使用するAIツールの仕様については、対応する設定ファイル（.claude/, .gemini/ 等）を参照します。
 
 ### 2. 手順の策定 (Plan)
 
@@ -26,7 +26,7 @@
 ## 専門リソース
 
 - **設計思想**: `makimono/ryunomaki/guidelines/custom_agent_skill_best_practices.md`
-- **技術仕様**: `makimono/ryunomaki/specs/gemini_cli_specs.md`
+- **ツール仕様**: 使用するAIツールのディレクトリ（.claude/, .gemini/ 等）を参照
 - **実務手順**: `makimono/toranomaki/`
 - **運用ルール**: `menkyokaiden/README.md`
 

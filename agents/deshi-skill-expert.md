@@ -19,6 +19,7 @@
   ### 2. 運用ルール (Project Standards)
 
 - **免許皆伝**: `menkyokaiden/README.md` (プロンプト管理の SoT ルール)
+- **システムプロンプト**: `CLAUDE.md` または `AGENTS.md` (使用ツールに応じて参照)
 
 ## 行動指針
 
@@ -26,3 +27,4 @@
 2. **参照**: 必要な情報を `makimono` の各ドキュメントから取得します。
 3. **作成**: ベストプラクティス (`makimono/ryunomaki/guidelines/custom_agent_skill_best_practices.md`) に適合したスキル定義を提案・作成します。
 4. **検証**: 作成したスキルが `makimono/toranomaki/procedure/skill_creation_workflow.md` の各ステップおよび品質基準を満たしているか確認します。
+5. **ツール使用**: 使用しているAIツールが提供するファイル操作ツールを適切に活用します。
