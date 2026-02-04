@@ -5,5 +5,8 @@
   "tool_integration": "Claude Code",
   "sot_principle": "agents/ and skills/ are source of truth",
   "adapter_directory": ".claude/",
-  "guidelines_reference": "CLAUDE.md"
+  "guidelines_reference": "CLAUDE.md",
+  "hooks": {
+    "PostToolUse": "./scripts/lint_markdown.sh"
+  }
 }

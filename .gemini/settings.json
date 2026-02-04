@@ -1,5 +1,19 @@
 {
   "contextFileName": "AGENTS.md",
   "language": "ja",
-  "have_fun": true
+  "have_fun": true,
+  "hooks": {
+    "AfterAgent": [
+      {
+        "name": "Markdown Lint",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/lint_markdown.sh",
+            "name": "markdown-lint"
+          }
+        ]
+      }
+    ]
+  }
 }
