@@ -27,7 +27,7 @@ AIエージェントとスキルのためのプロンプト管理リポジトリ
 
 ### ディレクトリ構造
 
-```
+```text
 bluestar-agent-dojo/
 ├── makimono/                    # 共有知識と手順
 │   ├── ryunomaki/               # 龍の巻（知識）
