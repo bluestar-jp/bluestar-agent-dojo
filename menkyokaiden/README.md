@@ -51,7 +51,7 @@ bluestar-agent-dojo/
 3. **整合性チェック**: 以下のコマンドを実行して、修正漏れがないか確認します。
 
    ```bash
-   python3 scripts/verify_sync.py
+   python3 .github/scripts/verify_sync.py
    ```
 
 4. **反映**: 各エージェントは実行時に最新のSoTを自動的に読み込みます。
