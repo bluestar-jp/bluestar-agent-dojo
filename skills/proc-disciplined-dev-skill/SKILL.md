@@ -1,3 +1,8 @@
+---
+name: proc-disciplined-dev-skill
+description: 「計画・実装・検証」の厳格なサイクルを適用し、高品質な開発ワークフローを強制する。
+---
+
 # proc-disciplined-dev-skill
 
 - Purpose: 「計画・実装・検証」の厳格なサイクルを適用し、高品質な開発ワークフローを強制する
