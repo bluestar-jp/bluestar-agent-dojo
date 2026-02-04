@@ -1,0 +1,14 @@
+{
+  "name": "bluestar-dojo",
+  "owner": { "name": "BlueStar Team" },
+  "metadata": { "description": "BlueStarエージェント道場", "version": "1.0.0" },
+  "plugins": [
+    {
+      "name": "bluestar-agent-dojo",
+      "source": "./",
+      "description": "スキル作成、コードレビュー、インポートの専門エージェントとスキル",
+      "version": "1.0.0",
+      "category": "productivity"
+    }
+  ]
+}

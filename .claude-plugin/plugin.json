@@ -1,0 +1,11 @@
+{
+  "name": "bluestar-agent-dojo",
+  "version": "1.0.0",
+  "description": "BlueStarエージェントエコシステムの道場。スキル作成、コードレビュー、外部スキルインポートの専門エージェントとスキルを提供。",
+  "author": { "name": "BlueStar Team" },
+  "repository": "https://github.com/bluestar-jp/bluestar-agent-dojo",
+  "license": "Apache-2.0",
+  "keywords": ["agent", "skill", "workflow", "code-review", "japanese"],
+  "skills": "./skills/",
+  "agents": "./agents/"
+}
