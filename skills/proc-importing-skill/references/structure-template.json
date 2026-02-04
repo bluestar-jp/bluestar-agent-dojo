@@ -1,0 +1,295 @@
+{
+  "skill": {
+    "base_path": "skills/{type}-{action}-skill",
+    "required_files": [
+      "SKILL.md"
+    ],
+    "optional_directories": [
+      "scripts",
+      "references",
+      "assets"
+    ],
+    "skill_md_structure": {
+      "header": {
+        "required_fields": [
+          "Purpose",
+          "Scope"
+        ],
+        "format": "# {Skill Name}\n\n- Purpose: {purpose}\n- Scope: {scope}\n"
+      },
+      "sections": [
+        {
+          "name": "概要",
+          "optional": true,
+          "description": "スキルの簡潔な説明"
+        },
+        {
+          "name": "ワークフロー",
+          "required": true,
+          "subsections": [
+            "1. Plan",
+            "2. Agree",
+            "3. Execute",
+            "4. Verify"
+          ]
+        },
+        {
+          "name": "リソース",
+          "optional": true,
+          "description": "使用するスクリプトや参照ドキュメント"
+        },
+        {
+          "name": "依存関係",
+          "optional": true,
+          "description": "外部ツールやパッケージ"
+        },
+        {
+          "name": "使用例",
+          "optional": true,
+          "description": "実際の使用方法"
+        },
+        {
+          "name": "ベストプラクティス",
+          "optional": true,
+          "description": "推奨される使い方"
+        }
+      ]
+    },
+    "scripts_directory": {
+      "description": "実行可能なスクリプトを格納",
+      "file_types": [
+        ".py",
+        ".sh",
+        ".js"
+      ],
+      "naming": "snake_case",
+      "permissions": "executable for .sh files"
+    },
+    "references_directory": {
+      "description": "補足資料や詳細仕様を格納",
+      "file_types": [
+        ".md",
+        ".json",
+        ".yaml"
+      ],
+      "naming": "kebab-case.md",
+      "examples": [
+        "detailed-specs.md",
+        "api-reference.md",
+        "best-practices.md"
+      ]
+    },
+    "assets_directory": {
+      "description": "画像、データファイル、その他のバイナリを格納",
+      "file_types": [
+        ".png",
+        ".jpg",
+        ".svg",
+        ".csv",
+        ".json"
+      ]
+    }
+  },
+  "agent": {
+    "base_path": "agents/{role}-{specialty}",
+    "required_files": [
+      "AGENT.md"
+    ],
+    "optional_directories": [
+      "rules",
+      "knowledge",
+      "verification",
+      "collection",
+      "generation"
+    ],
+    "agent_md_structure": {
+      "header": {
+        "required_fields": [
+          "Purpose",
+          "Scope"
+        ],
+        "format": "# {Agent Name}\n\n- Purpose: {purpose}\n- Scope: {scope}\n"
+      },
+      "sections": [
+        {
+          "name": "役割",
+          "required": true,
+          "description": "エージェントの主要な責務"
+        },
+        {
+          "name": "専門領域",
+          "optional": true,
+          "description": "特化している技術や知識"
+        },
+        {
+          "name": "ワークフロー",
+          "required": true,
+          "description": "タスク実行の流れ"
+        },
+        {
+          "name": "使用するリソース",
+          "optional": true,
+          "description": "知識ベース、ルール、スキル"
+        },
+        {
+          "name": "他エージェントとの連携",
+          "optional": true,
+          "description": "協調動作の方法"
+        }
+      ]
+    },
+    "rules_directory": {
+      "description": "エージェントが従うべきルールや制約",
+      "file_types": [
+        ".md"
+      ],
+      "examples": [
+        "code-style-rules.md",
+        "security-rules.md"
+      ]
+    },
+    "knowledge_directory": {
+      "description": "ドメイン知識やベストプラクティス",
+      "file_types": [
+        ".md",
+        ".json"
+      ],
+      "examples": [
+        "design-patterns.md",
+        "api-knowledge.md"
+      ]
+    },
+    "verification_directory": {
+      "description": "検証スクリプトやテストケース",
+      "file_types": [
+        ".py",
+        ".sh",
+        ".md"
+      ]
+    },
+    "collection_directory": {
+      "description": "収集した情報やデータ",
+      "file_types": [
+        ".md",
+        ".json",
+        ".csv"
+      ]
+    },
+    "generation_directory": {
+      "description": "生成するテンプレートやフォーマット",
+      "file_types": [
+        ".md",
+        ".json",
+        ".yaml"
+      ]
+    }
+  },
+  "conversion_rules": {
+    "file_mapping": {
+      "README.md": {
+        "skill": "SKILL.md",
+        "agent": "AGENT.md",
+        "merge_strategy": "extract_purpose_and_scope"
+      },
+      "index.md": {
+        "skill": "SKILL.md",
+        "agent": "AGENT.md",
+        "merge_strategy": "use_as_overview"
+      },
+      "docs/*.md": {
+        "skill": "references/*.md",
+        "agent": "knowledge/*.md",
+        "merge_strategy": "categorize_by_content"
+      },
+      "scripts/*": {
+        "skill": "scripts/*",
+        "agent": "verification/*",
+        "merge_strategy": "preserve_structure"
+      },
+      "examples/*": {
+        "skill": "references/examples.md",
+        "agent": "knowledge/examples.md",
+        "merge_strategy": "consolidate_to_markdown"
+      },
+      "assets/*": {
+        "skill": "assets/*",
+        "agent": "assets/*",
+        "merge_strategy": "copy_as_is"
+      }
+    },
+    "content_transformation": {
+      "header_insertion": {
+        "enabled": true,
+        "fields": [
+          "Purpose",
+          "Scope"
+        ]
+      },
+      "section_reordering": {
+        "enabled": true,
+        "priority": [
+          "概要",
+          "ワークフロー",
+          "リソース",
+          "依存関係",
+          "使用例"
+        ]
+      },
+      "code_block_formatting": {
+        "enabled": true,
+        "language_hints": true
+      },
+      "link_adjustment": {
+        "enabled": true,
+        "resolve_relative_paths": true,
+        "update_internal_references": true
+      }
+    }
+  },
+  "validation": {
+    "required_checks": [
+      {
+        "name": "header_fields",
+        "description": "Purpose and Scope fields are present",
+        "severity": "error"
+      },
+      {
+        "name": "file_naming",
+        "description": "Files follow naming conventions",
+        "severity": "error"
+      },
+      {
+        "name": "directory_structure",
+        "description": "Directories match the template",
+        "severity": "warning"
+      },
+      {
+        "name": "markdown_syntax",
+        "description": "Valid Markdown formatting",
+        "severity": "warning"
+      },
+      {
+        "name": "workflow_sections",
+        "description": "Plan → Agree → Execute → Verify pattern",
+        "severity": "info"
+      }
+    ],
+    "optional_checks": [
+      {
+        "name": "examples_present",
+        "description": "Usage examples are included",
+        "severity": "info"
+      },
+      {
+        "name": "dependencies_documented",
+        "description": "Dependencies are listed",
+        "severity": "info"
+      },
+      {
+        "name": "error_handling",
+        "description": "Error handling is documented",
+        "severity": "info"
+      }
+    ]
+  }
+}
