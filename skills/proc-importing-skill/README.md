@@ -160,7 +160,7 @@ gh auth login
 
 ## ディレクトリ構造
 
-```
+```text
 proc-importing-skill/
 ├── SKILL.md                          # メインドキュメント
 ├── README.md                         # このファイル
@@ -194,7 +194,8 @@ cd /Users/aono/develop/bluestar/bluestar-agent-dojo
 ```
 
 出力:
-```
+
+```text
 [INFO] Starting import workflow
 [INFO] Source: https://github.com/anthropics/claude-code-examples/tree/main/skills/formatter
 [INFO] Type: skill
@@ -273,22 +274,24 @@ Import Complete!
 
 ### エラー: GitHub認証が必要
 
-```
+```text
 [ERROR] GitHub authentication required
 ```
 
 解決方法:
+
 ```bash
 gh auth login
 ```
 
 ### エラー: 依存関係が不足
 
-```
+```text
 [WARNING] Some dependencies are missing
 ```
 
 解決方法:
+
 ```bash
 # macOS
 brew install jq gh git
@@ -299,22 +302,24 @@ apt-get install jq git curl
 
 ### エラー: 既存リソースと競合
 
-```
+```text
 [WARNING] Target directory already exists
 ```
 
 解決方法:
+
 - オプション1: 既存リソースを削除してから再実行
 - オプション2: 異なる名前を指定
 - オプション3: インポートをキャンセル
 
 ### エラー: 構造検証失敗
 
-```
+```text
 [ERROR] SKILL.md missing required field: Purpose
 ```
 
 解決方法:
+
 - インポート後に手動でSKILL.mdを編集
 - 必須フィールド（Purpose, Scope）を追加
 

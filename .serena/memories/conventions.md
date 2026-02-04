@@ -7,26 +7,27 @@
 
 ## Directory & Naming
 
-- 知識型（龍の巻）: `makimono/ryunomaki/` 配下。スネークケース。
-- 指示型（虎の巻）: `makimono/toranomaki/` 配下。スネークケース。
-- エージェント/スキルSoT: `agents/`, `skills/` 配下。
-- スキルの命名: `[type]-[action]-skill` 形式（例: `proc-creating-skills-skill`）。
+- **エージェント名**: `[role]-[specialty]` (例: `shihan-routing`, `deshi-skill-expert`)
+- **スキル名**: `[type]-[action]-skill` (例: `proc-creating-skills-skill`)
+- **ファイル名**: スネークケース (例: `skill_creation_workflow.md`)。
+- **巻物**: `makimono/ryunomaki/` (知識), `makimono/toranomaki/` (手順)。
 
 ## Documentation Style (Markdown)
 
-- **ガイドライン**: `makimono/ryunomaki/guidelines/markdown_style.md` を厳守。
-- **見出し**: ATX形式（`#`）を使用し、前後に空行。
-- **リスト**: ハイフン（`-`）を使用。
-- **コード**: 言語識別子を必須とし、フェンスコードブロックを使用。
-- **日本語**: 英数字と日本語の間に半角スペースを推奨。
+- すべてのMarkdownファイルは `# [TITLE]`、`- Purpose: ...`、`- Scope: ...` で開始する。
+- `makimono/ryunomaki/guidelines/markdown_style.md` を厳守。
+- ATX形式（`#`）の見出し、ハイフン（`-`）のリストを使用。
+- 言語識別子付きのフェンスコードブロックを使用。
 
 ## Git & Commit
 
+- **形式**: Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`)。
 - **言語**: コミットメッセージは日本語。
-- **形式**: Conventional Commits (`feat:`, `fix:`, `docs:`, etc.)。
-- **署名**: `Co-Authored-By: gemini-cli <218195315+gemini-cli@users.noreply.github.com>` を必須とする。
+- **Co-authored-by**: AIエージェント使用時は以下を含める。
+  - Gemini CLI: `Co-authored-by: gemini-cli {model} <218195315+gemini-cli@users.noreply.github.com>`
+  - Claude Code: `Co-authored-by: Claude {model} <noreply@anthropic.com>`
 
 ## Agent Skill Best Practices
 
 - `makimono/ryunomaki/guidelines/custom_agent_skill_best_practices.md` を参照。
-- 認知負荷の最小化、ツール活用、計画と検証、自律性の制御を重視。
+- 認知負荷の最小化、ツール活用、計画と検証、自律性の制御。

@@ -10,11 +10,13 @@ Status: Requires Security Enhancements
 **Location**: `scripts/fetch_definition.py` lines 96-113, 160-163
 
 **Issue**: External URLs are downloaded without validation, potentially allowing:
+
 - Arbitrary file execution
 - Path traversal attacks
 - Malicious content injection
 
 **Recommendation**:
+
 ```python
 # Add URL validation
 from urllib.parse import urlparse
@@ -39,11 +41,13 @@ def _validate_url(url: str) -> bool:
 **Location**: `scripts/import_workflow.sh` lines 261-267
 
 **Issue**: User-provided paths are used without sanitization:
+
 ```bash
 cp -r "$CONVERTED_PATH" "$TARGET_PATH"
 ```
 
 **Recommendation**:
+
 ```bash
 # Validate paths before use
 if [[ "$TARGET_PATH" != "$PROJECT_ROOT"* ]]; then
@@ -56,6 +60,7 @@ fi
 **Location**: Downloaded scripts are not scanned before execution
 
 **Recommendation**:
+
 - Add content scanning for suspicious patterns
 - Warn users before executing external scripts
 - Implement sandboxing for script validation
@@ -69,6 +74,7 @@ fi
 **Issue**: Command-line arguments lack proper validation
 
 **Recommendation**:
+
 ```bash
 # Validate SOURCE format
 if [[ "$SOURCE" =~ [;\&\|] ]]; then
@@ -83,6 +89,7 @@ fi
 **Issue**: Downloaded files are assumed to be safe based on extension only
 
 **Recommendation**:
+
 - Verify MIME types using `file` command
 - Check file signatures (magic bytes)
 - Limit file sizes
@@ -96,6 +103,7 @@ fi
 **Issue**: Temporary files might not be cleaned up on error
 
 **Recommendation**:
+
 - Use `try/finally` blocks
 - Implement proper cleanup handlers
 
@@ -108,6 +116,7 @@ fi
 **Issue**: Documentation shows bash commands instead of Claude Code tools
 
 **Should be**:
+
 ```markdown
 # Use Claude Code tools instead of raw commands
 - WebFetch for HTTP(S) URLs

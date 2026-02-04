@@ -7,9 +7,9 @@
 
 ### フォーマット
 
-```
+```text
 [type]-[action]-skill
-```
+```text
 
 ### type の判定基準
 
@@ -24,7 +24,7 @@
 - Plan → Execute → Verify のようなフロー
 - 並列処理や複雑なオーケストレーション
 
-**例**
+### スキルの命名規則の例
 
 - `code-reviewer` → `proc-reviewing-code-skill`
 - `deploy-manager` → `proc-deploying-skill`
@@ -39,7 +39,7 @@
 - 他のスキルから呼び出されることを想定
 - 独立した小さな機能
 
-**例**
+### スキルの命名規則の例
 
 - `formatter` → `action-formatting-code-skill`
 - `linter` → `action-linting-code-skill`
@@ -54,7 +54,7 @@
 - 「IF...THEN...」構造が多い
 - 意思決定や選択ロジック
 
-**例**
+### スキルの命名規則の例
 
 - `priority-judge` → `cond-judging-priority-skill`
 - `router` → `cond-routing-requests-skill`
@@ -66,7 +66,7 @@
 - ケバブケース（kebab-case）
 - 明確で簡潔な動詞を選択
 
-**変換例**
+### スキルの命名規則の変換例
 
 - `CodeFormatter` → `formatting-code`
 - `test_runner` → `running-tests`
@@ -82,9 +82,9 @@
 
 ### フォーマット
 
-```
+```text
 [role]-[specialty]
-```
+```text
 
 ### role の判定基準
 
@@ -97,7 +97,7 @@
 - ルーティングや並列制御
 - 全体の統括や調整
 
-**例**
+### エージェントの命名規則の例
 
 - `orchestrator` → `shihan-orchestrator`
 - `task-router` → `shihan-routing`
@@ -112,7 +112,7 @@
 - 技術的な専門性
 - 独立した機能単位
 
-**例**
+### エージェントの命名規則の例
 
 - `skill-creator` → `deshi-skill-expert`
 - `code-analyzer` → `deshi-code-analyst`
@@ -124,7 +124,7 @@
 - 役割や専門分野を表す名詞
 - 簡潔で明確な名前
 
-**変換例**
+### エージェントの命名規則の変換例
 
 - `SkillCreator` → `skill-expert`
 - `code_reviewer` → `code-reviewer`
@@ -151,7 +151,7 @@ def detect_pattern(name: str) -> dict:
             return {'type': pattern_name, 'name': name}
 
     return {'type': 'unknown', 'name': name}
-```
+```text
 
 ### 2. ケバブケースへの統一
 
@@ -173,7 +173,7 @@ def to_kebab_case(name: str, pattern_type: str) -> str:
     else:
         # 不明な場合はそのまま小文字化
         return name.lower()
-```
+```text
 
 ### 3. プレフィックスとサフィックスの追加
 
@@ -186,7 +186,7 @@ def apply_convention(
     """命名規則を適用"""
 
     # 既存のプレフィックス・サフィックスを除去
-    name = re.sub(r'^(proc|action|cond|shihan|deshi)-', '', name)
+|name = re.sub(r'^(proc | action | cond | shihan | deshi)-', '', name)|
     name = re.sub(r'-skill$', '', name)
 
     if resource_type == 'skill':
@@ -195,7 +195,7 @@ def apply_convention(
         return f"{sub_type}-{name}"
     else:
         raise ValueError(f"Unknown resource_type: {resource_type}")
-```
+```text
 
 ## 競合の処理
 
@@ -216,7 +216,7 @@ def handle_exact_match(name: str) -> str:
 
     # オプション3: ユーザーに確認
     # (実装はインタラクティブに行う)
-```
+```text
 
 ### 類似名の場合
 
@@ -233,7 +233,7 @@ def suggest_alternative(name: str, existing: list) -> list:
     suggestions.append(f"community-{name}")
 
     return suggestions
-```
+```text
 
 ## 使用例
 
@@ -253,7 +253,7 @@ final_name = apply_convention(kebab, resource_type, sub_type)
 
 # 出力
 print(final_name)  # 'action-formatting-code-skill'
-```
+```text
 
 ### エージェントの変換例
 
@@ -271,7 +271,7 @@ final_name = apply_convention(kebab, resource_type, sub_type)
 
 # 出力
 print(final_name)  # 'deshi-security-analyst'
-```
+```text
 
 ## 変換マトリックス
 
