@@ -30,4 +30,4 @@ Claude Codeを中心に設計されており、共有知見を「巻物（Makimo
 - **弟子 (deshi - 専門型)**: 特定ドメインタスクの実行、専門知識の維持。
   - `deshi-skill-expert`, `deshi-code-reviewer`
 - **スキル (skills)**: 具体的なタスク実行定義 (`[type]-[action]-skill`)。
-  - `proc-creating-skills-skill`, `proc-importing-skill`, `proc-reviewing-code-skill`
+  - `proc-creating-skills-skill`, `proc-disciplined-dev-skill`, `proc-importing-skill`, `proc-reviewing-code-skill`
