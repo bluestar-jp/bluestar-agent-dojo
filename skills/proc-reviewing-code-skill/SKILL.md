@@ -144,7 +144,7 @@ fi
 
 ```bash
 # 現在の変更をレビュー
-gemini -p "@skills/proc-reviewing-code-skill.md
+gemini -m gemini-3.0-flash -p "@skills/proc-reviewing-code-skill.md
 
 Review the current changes:
 $(git diff HEAD)
@@ -155,7 +155,7 @@ $(git diff HEAD)
 
 ```bash
 # セキュリティ観点のみ
-gemini -p "@skills/proc-reviewing-code-skill.md
+gemini -m gemini-3.0-flash -p "@skills/proc-reviewing-code-skill.md
 
 Focus on security perspective only.
 Review: $(git diff HEAD)
