@@ -1,0 +1,9 @@
+# lefthook.yml
+# Git hooks configuration
+
+pre-commit:
+  parallel: true
+  commands:
+    markdownlint:
+      glob: "*.md"
+      run: npx markdownlint-cli2 {staged_files}

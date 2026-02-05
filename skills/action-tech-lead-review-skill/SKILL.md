@@ -96,7 +96,7 @@ git diff --name-only HEAD~1
 ### 総合評価
 
 | 評価 | 基準 |
-|------|------|
+| ------ | ------ |
 | **Approved** | Criticalなし、Highが2件以下 |
 | **Needs Changes** | Critical 1件以上、またはHigh 3件以上 |
 | **Rejected** | 根本的な設計変更が必要 |
@@ -104,7 +104,7 @@ git diff --name-only HEAD~1
 ### 重要度
 
 | 重要度 | 説明 |
-|--------|------|
+| -------- | ------ |
 | **Critical** | セキュリティ問題、データ損失の可能性、本番障害リスク |
 | **High** | パフォーマンス問題、保守性の大幅な低下 |
 | **Medium** | ベストプラクティスからの逸脱、軽微な設計問題 |
@@ -114,7 +114,7 @@ git diff --name-only HEAD~1
 
 ### 単独使用
 
-```
+```text
 テックリード観点で以下の変更をレビューしてください:
 - src/services/auth.ts
 - src/controllers/user.ts

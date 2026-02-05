@@ -46,7 +46,7 @@ trigger: 機能追加、バグ修正、リファクタリングなど、コー�
 - `Read`: 関連ファイルの詳細確認
 - `Task(Explore)`: 広範囲のコードベース探索
 
-```
+```text
 # 例: 類似パターンの検索
 Grep: pattern="class.*Service", type="ts"
 Glob: pattern="src/**/*.service.ts"
@@ -66,7 +66,7 @@ Glob: pattern="src/**/*.service.ts"
 
 **Claude Code ツール**: `AskUserQuestion`
 
-```
+```text
 # 計画承認の例
 AskUserQuestion: "この計画で実装を進めてよろしいですか？"
   - options: ["承認する", "修正が必要", "キャンセル"]
@@ -94,7 +94,7 @@ AskUserQuestion: "この計画で実装を進めてよろしいですか？"
 
 実装完了後、検証フェーズへの移行許可を求める。
 
-```
+```text
 # 実装完了の確認
 AskUserQuestion: "実装が完了しました。検証フェーズに進んでよろしいですか？"
 ```
@@ -158,7 +158,7 @@ go test ./...
 
 レビュー結果をユーザーに報告し、最終承認を得る。
 
-```
+```text
 # レビュー完了の確認
 AskUserQuestion: "レビューが完了しました。結果を確認してください。"
 ```
@@ -189,7 +189,7 @@ AskUserQuestion: "レビューが完了しました。結果を確認してく�
 ## 6. 連携スキル
 
 | スキル | 役割 | 呼び出しタイミング |
-|--------|------|-------------------|
+| -------- | ------ | ------------------- |
 | `action-tech-lead-review-skill` | テックリード観点レビュー | Phase 4 (必須) |
 | `proc-reviewing-code-skill` | 4観点並列レビュー | Phase 4 (オプション・大規模変更時) |
 
