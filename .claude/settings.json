@@ -7,6 +7,16 @@
   "adapter_directory": ".claude/",
   "guidelines_reference": "CLAUDE.md",
   "hooks": {
-    "PostToolUse": "./scripts/lint_markdown.sh"
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/lint_markdown.sh"
+          }
+        ]
+      }
+    ]
   }
 }

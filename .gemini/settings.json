@@ -3,16 +3,10 @@
   "language": "ja",
   "have_fun": true,
   "hooks": {
-    "AfterAgent": [
+    "postToolCall": [
       {
-        "name": "Markdown Lint",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "./scripts/lint_markdown.sh",
-            "name": "markdown-lint"
-          }
-        ]
+        "command": "./scripts/lint_markdown.sh",
+        "toolNameMatcher": "edit_file|create_file|write_file"
       }
     ]
   }
