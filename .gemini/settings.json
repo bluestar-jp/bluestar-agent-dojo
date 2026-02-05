@@ -1,7 +1,5 @@
 {
-  "contextFileName": "AGENTS.md",
-  "language": "ja",
-  "have_fun": true,
+  "contextFileName": "CLAUDE.md",
   "hooks": {
     "postToolCall": [
       {

@@ -1,8 +1,0 @@
-# Gemini Code Assist Exclude Patterns
-# .gitignore と同様の書式で、インデックス対象外を指定します。
-
-.git/
-.serena/cache/
-node_modules/
-*.log
-.DS_Store
