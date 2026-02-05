@@ -1,7 +1,13 @@
-# proc-reviewing-code-skill
+# proc-reviewing-code-skill (DEPRECATED)
 
-Git差分に対して、4つの観点（フロントエンド、バックエンド、インフラ、セキュリティ）から並列レビューを実行し、JSON形式で結果を提示します。
+このスキルは非推奨です。以下に移行してください:
+
+- `shihan-code-review` - オーケストレーター
+- `action-frontend-review-skill` - フロントエンド観点
+- `action-backend-review-skill` - バックエンド観点
+- `action-infrastructure-review-skill` - インフラ観点
+- `action-security-review-skill` - セキュリティ観点
 
 ## SoT Reference
 
-@skills/proc-reviewing-code-skill/SKILL.md
+@skills/proc-reviewing-code-skill/DEPRECATED.md
