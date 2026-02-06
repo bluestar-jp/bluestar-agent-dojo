@@ -31,7 +31,7 @@ pre-commit:
     # 5. Python Lint (Ruff)
     # 高速なPythonリンター
     ruff:
-      glob: "*.py"
+      glob: "**/*.py"
       run: ruff check --fix {staged_files}
 
     # 6. YAML Lint (yamllint)

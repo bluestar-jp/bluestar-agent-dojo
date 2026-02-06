@@ -300,7 +300,7 @@ def main():
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
 
-        print(f"\n[SUCCESS] Analysis complete")
+        print("\n[SUCCESS] Analysis complete")
         print(f"[INFO] Original name: {result['original_name']}")
         print(f"[INFO] Description: {result['description'][:100]}...")
         print(f"[INFO] Autonomy level: {result['autonomy_level']}")

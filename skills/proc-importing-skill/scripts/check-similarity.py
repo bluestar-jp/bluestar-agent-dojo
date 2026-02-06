@@ -11,7 +11,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 
 class SimilarityChecker:
@@ -24,7 +24,7 @@ class SimilarityChecker:
 
     def check(self) -> Dict:
         """類似性チェックを実行"""
-        print(f"[INFO] Checking similarity with existing resources")
+        print("[INFO] Checking similarity with existing resources")
         print(f"[INFO] New resource: {self.new_path}")
         print(f"[INFO] Existing directory: {self.existing_dir}")
         print(f"[INFO] Threshold: {self.threshold}")
@@ -75,10 +75,10 @@ class SimilarityChecker:
             for conflict in conflicts:
                 print(f"  - {conflict['name']} (similarity: {conflict['similarity']:.2%})")
         else:
-            print(f"\n[INFO] No conflicts detected")
+            print("\n[INFO] No conflicts detected")
 
         if similarities:
-            print(f"\n[INFO] Top similar resources:")
+            print("\n[INFO] Top similar resources:")
             for sim in similarities[:5]:
                 print(f"  - {sim['name']} (similarity: {sim['similarity']:.2%})")
 

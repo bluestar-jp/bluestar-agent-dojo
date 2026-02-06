@@ -11,7 +11,7 @@ import json
 import shutil
 import sys
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict
 
 
 class StructureConverter:
@@ -152,8 +152,8 @@ class StructureConverter:
         rules_dir = target_dir / 'rules'
         knowledge_dir = target_dir / 'knowledge'
         verification_dir = target_dir / 'verification'
-        collection_dir = target_dir / 'collection'
-        generation_dir = target_dir / 'generation'
+        target_dir / 'collection'
+        target_dir / 'generation'
 
         created_files = []
 
@@ -426,7 +426,7 @@ def main():
         converter = StructureConverter(args.input, args.output, config)
         result = converter.convert()
 
-        print(f"\n[SUCCESS] Structure conversion complete")
+        print("\n[SUCCESS] Structure conversion complete")
         print(f"[INFO] Target directory: {result['target_directory']}")
         print(f"[INFO] Created {len(result['created_files'])} files")
 

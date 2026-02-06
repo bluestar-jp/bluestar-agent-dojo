@@ -248,7 +248,7 @@ def main():
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
 
-        print(f"\n[SUCCESS] Naming conversion complete")
+        print("\n[SUCCESS] Naming conversion complete")
         print(f"[INFO] {result['original_name']} → {result['new_name']}")
         print(f"[INFO] Base path: {result['base_path']}")
         print(f"[INFO] Result saved to: {output_path}")

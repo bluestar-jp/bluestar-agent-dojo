@@ -32,7 +32,7 @@ else
 fi
 
 # 一時ディレクトリのクリーンアップ
-# shellcheck disable=SC2329
+# shellcheck disable=SC2317,SC2329
 cleanup() {
   if [ -n "${TEMP_DIR:-}" ] && [ -d "$TEMP_DIR" ]; then
     rm -rf "$TEMP_DIR"
