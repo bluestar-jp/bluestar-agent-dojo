@@ -49,8 +49,6 @@ bluestar-agent-dojo/
 │   └── [type]-*-skill/ # 具体的なスキル定義
 ├── .claude-plugin/     # プラグインマニフェスト
 │   └── plugin.json
-├── .claude/            # Claude Code設定
-│   └── settings.json   # フック設定
 ├── menkyokaiden/       # プラグイン公開ガイド
 └── CLAUDE.md           # Claude Code向けシステムプロンプト
 ```
