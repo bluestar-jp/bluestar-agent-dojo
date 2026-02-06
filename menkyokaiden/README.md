@@ -146,4 +146,3 @@ bluestar-agent-dojo/
 詳細なワークフローは以下のスキルを参照:
 
 - `proc-menkyokaiden-claude-skill`: Claude Code プラグインの設定・検証ワークフロー
-- `proc-menkyokaiden-gemini-skill`: Gemini Extensions の設定・検証ワークフロー
