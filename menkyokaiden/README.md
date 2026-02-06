@@ -36,8 +36,8 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 
 **必須フィールド:**
 
-- `name`: エージェント名（kebab-case）
-- `description`: いつ使うか明記
+- `name`: エージェント名（ファイル名から拡張子を除いたものと一致させること）
+- `description`: エージェントの役割と使用場面を明記
 
 **推奨フィールド:**
 
@@ -48,27 +48,27 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 
 ```yaml
 ---
-name: backend-review
-description: バックエンド観点でコード差分をレビューする。バックエンドコードのレビュー時に使用する。
+name: action-backend-review-skill
+description: バックエンド観点でコード差分をレビューする。
 ---
 ```
 
 **必須フィールド:**
 
-- `name`: 簡潔な名前（slash commandになる）
-- `description`: 「いつ使うか」を明記
+- `name`: スキル名（**ディレクトリ名と完全一致させること**）
+- `description`: スキルの機能と使用場面を明記
 
 **手順型スキル（proc-*）の追加フィールド:**
 
 ```yaml
 ---
-name: creating-skills
+name: proc-creating-skills-skill
 description: スキル作成ワークフロー。
 disable-model-invocation: true
 ---
 ```
 
-- `disable-model-invocation: true`: ワークフロー実行スキルはユーザーが明示的に呼ぶ
+- `disable-model-invocation: true`: ワークフロー実行スキルはユーザーが明示的に呼ぶ場合に設定
 
 ### 1.4 ドラフト規約
 
@@ -81,21 +81,25 @@ disable-model-invocation: true
 
 ## 2. 検証コマンド
 
-### ローカル検証
+### 自動検証 (Lefthook)
+
+コミット時に以下の検証が自動実行されます:
+
+- Markdown Lint (`markdownlint`)
+- 構成・ベストプラクティス検証 (`verify-best-practices.py`)
+- プラグイン構造検証 (`validate-plugin.sh`)
+- コミットメッセージ規約 (`feat:`, `fix:` 等)
+
+### 手動検証
 
 ```bash
+# 全体の構成検証 (ベストプラクティス準拠確認)
+python3 scripts/verify-best-practices.py
+
 # プラグイン構造の検証
+sh scripts/validate-plugin.sh
+# または
 make validate
-
-# または直接実行
-./scripts/validate-plugin.sh
-```
-
-### CI検証
-
-```bash
-# フロントマター検証
-python .github/scripts/verify_plugin_sync.py
 ```
 
 ## 3. バージョン管理・リリース手順
@@ -128,8 +132,7 @@ bluestar-agent-dojo/
 │   └── shihan-*.md              # 師範エージェント
 ├── skills/                      # スキル定義（SoT）
 │   ├── action-*-skill/          # 単一アクション型
-│   ├── proc-*-skill/            # 手順型
-│   └── cond-*-skill/            # 条件判断型
+│   └── proc-*-skill/            # 手順型
 ├── .claude-plugin/
 │   ├── plugin.json              # プラグインマニフェスト
 │   └── marketplace.json         # マーケットプレイス登録情報
@@ -142,5 +145,5 @@ bluestar-agent-dojo/
 
 詳細なワークフローは以下のスキルを参照:
 
-- `/menkyokaiden-claude`: Claude Code プラグインの設定・検証ワークフロー
-- `/menkyokaiden-gemini`: Gemini Extensions の設定・検証ワークフロー（将来対応）
+- `proc-menkyokaiden-claude-skill`: Claude Code プラグインの設定・検証ワークフロー
+- `proc-menkyokaiden-gemini-skill`: Gemini Extensions の設定・検証ワークフロー
