@@ -38,7 +38,7 @@ echo ""
 # Check required files
 echo "=== Required Files ==="
 
-for file in ".claude-plugin/plugin.json" "marketplace.json" "CLAUDE.md" "LICENSE"; do
+for file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json" "CLAUDE.md" "LICENSE"; do
     if [ -f "$file" ]; then
         ok "$file exists"
     else
@@ -50,7 +50,7 @@ done
 echo ""
 echo "=== JSON Validation ==="
 
-for json_file in ".claude-plugin/plugin.json" "marketplace.json"; do
+for json_file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json"; do
     if [ -f "$json_file" ]; then
         if jq empty "$json_file" 2>/dev/null; then
             ok "$json_file is valid JSON"
@@ -65,7 +65,7 @@ echo ""
 echo "=== Version Consistency ==="
 
 PLUGIN_VERSION=$(jq -r .version .claude-plugin/plugin.json 2>/dev/null || echo "N/A")
-MARKETPLACE_VERSION=$(jq -r '.plugins[0].version' marketplace.json 2>/dev/null || echo "N/A")
+MARKETPLACE_VERSION=$(jq -r '.plugins[0].version' .claude-plugin/marketplace.json 2>/dev/null || echo "N/A")
 
 echo "plugin.json version: $PLUGIN_VERSION"
 echo "marketplace.json version: $MARKETPLACE_VERSION"
@@ -103,17 +103,6 @@ if [ -d "agents" ]; then
 else
     warn "agents/ directory not found"
 fi
-
-# Check .claude adapter sync
-echo ""
-echo "=== Adapter Sync Check ==="
-
-for skill_dir in skills/*/; do
-    skill_name=$(basename "$skill_dir")
-    if [ -f "${skill_dir}SKILL.md" ] && [ ! -f ".claude/skills/$skill_name/SKILL.md" ]; then
-        warn ".claude/skills/$skill_name/SKILL.md not synced"
-    fi
-done
 
 # Summary
 echo ""

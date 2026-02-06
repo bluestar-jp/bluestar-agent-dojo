@@ -43,17 +43,15 @@ bluestar-agent-dojo/
 │   ├── ryunomaki/      # 龍の巻: 知識型リソース
 │   └── toranomaki/     # 虎の巻: 指示型リソース
 ├── agents/             # サブエージェント（SoT）
-│   ├── deshi-*/        # 弟子: 専門型エージェント
-│   └── shihan-*/       # 師範: 統合型エージェント
+│   ├── deshi-*.md      # 弟子: 専門型エージェント
+│   └── shihan-*.md     # 師範: 統合型エージェント
 ├── skills/             # エージェントスキル（SoT）
 │   └── [type]-*-skill/ # 具体的なスキル定義
-├── .claude/            # Claude Code向けアダプター
-│   ├── agents/         # エージェントの適用定義
-│   ├── skills/         # スキルの適用定義
-│   ├── config.yaml     # プロジェクト設定
-│   └── settings.json   # メタデータ
-├── .gemini/            # 今後のレビュー用（今回は変更なし）
-├── menkyokaiden/       # プロンプト管理の運用ルール
+├── .claude-plugin/     # プラグインマニフェスト
+│   └── plugin.json
+├── .claude/            # Claude Code設定
+│   └── settings.json   # フック設定
+├── menkyokaiden/       # プラグイン公開ガイド
 └── CLAUDE.md           # Claude Code向けシステムプロンプト
 ```
 
@@ -61,10 +59,10 @@ bluestar-agent-dojo/
 
 本プロジェクトは**Claude Code**専用に設計されています。
 
-### SoT原則
+### プラグインファーストアーキテクチャ
 
-プロンプトの実体は `agents/` と `skills/`。
-`.claude/`ディレクトリには参照のみ。詳細: `menkyokaiden/README.md`
+`agents/` と `skills/` がプロンプトの Single Source of Truth (SoT)。
+`plugin.json` がこれらを直接参照します。詳細: `menkyokaiden/README.md`
 
 ## 🤖 カスタムサブエージェント
 

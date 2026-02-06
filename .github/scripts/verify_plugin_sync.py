@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-プラグインマニフェストとSoT（agents/, skills/）の同期を検証
+プラグインマニフェストとSoT（agents/, skills/）のフロントマターを検証
 """
 import re
 import sys
@@ -9,10 +9,10 @@ from pathlib import Path
 
 def is_draft(content: str) -> bool:
     """
-    Frontmatter内のdraft: trueフラグ、またはTODO:マーカーでドラフト状態を判定。
+    Frontmatter内のdraft: trueフラグ、またはStatus: Draftでドラフト状態を判定。
     - Frontmatterがあり draft: true → ドラフト
     - Frontmatterがない → ドラフト（未完成とみなす）
-    - コンテンツ内に「TODO:」が含まれる（Frontmatter外） → ドラフト（後方互換）
+    - 本文内に「> **Status**: Draft」が含まれる → ドラフト
     """
     # Frontmatterの抽出
     frontmatter_match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
@@ -28,8 +28,8 @@ def is_draft(content: str) -> bool:
     if re.search(r'^draft:\s*true\s*$', frontmatter, re.MULTILINE):
         return True
 
-    # 後方互換: 本文内にTODO:があればドラフト
-    if "TODO:" in body:
+    # 本文内の Draft ステータスをチェック
+    if "> **Status**: Draft" in body:
         return True
 
     return False

@@ -33,8 +33,5 @@ jobs:
           python -m json.tool .claude-plugin/plugin.json > /dev/null
           python -m json.tool marketplace.json > /dev/null
 
-      - name: Verify SoT-Adapter sync
-        run: python .github/scripts/verify_sync.py
-
       - name: Verify plugin sync
         run: python .github/scripts/verify_plugin_sync.py

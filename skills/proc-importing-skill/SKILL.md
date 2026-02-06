@@ -1,6 +1,7 @@
 ---
-name: proc-importing-skill
-description: 外部リポジトリやコミュニティから良質なスキル・エージェント定義を取得し、bluestar-agent-dojoの構造に適合させて統合する。
+name: importing-skill
+description: 外部リポジトリやコミュニティから良質なスキル・エージェント定義を取得し、bluestar-agent-dojoの構造に適合させて統合するワークフロー。
+disable-model-invocation: true
 ---
 
 # External Skill/Agent Import Skill

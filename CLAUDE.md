@@ -11,6 +11,8 @@
 
 ## 2. ディレクトリ構造とリソース
 
+本プロジェクトは**プラグインファーストアーキテクチャ**を採用している。`agents/` と `skills/` がプロンプトの Single Source of Truth (SoT) であり、`plugin.json` がこれらを直接参照する。
+
 プロジェクトは以下のディレクトリ構造に基づいて知識と機能を管理する。
 
 ### 2.1 巻物 (makimono - 共有リソース)
@@ -42,16 +44,15 @@
 
 特定の役割を持つ専門エージェント。役割に基づきプレフィックスを付与する。
 
-- **師範 (shihan - 統合型)**: `agents/shihan-*`
+- **師範 (shihan - 統合型)**: `agents/shihan-*.md`
   戦略立案、タスク委任、エージェント間のオーケストレーションを担当。
-  - `agents/shihan-routing/`: 要求分析とタスクの振り分け。
-  - `agents/shihan-parallel/`: 複数エージェントの並列制御と結果の統合。
-  - `agents/shihan-sequential/`: ステップバイステップのワークフローと状態管理。
+  - `shihan-routing`: 要求分析とタスクの振り分け。
+  - `shihan-parallel`: 複数エージェントの並列制御と結果の統合。
+  - `shihan-sequential`: ステップバイステップのワークフローと状態管理。
 
-- **弟子 (deshi - 専門型)**: `agents/deshi-*`
+- **弟子 (deshi - 専門型)**: `agents/deshi-*.md`
   特定のドメインタスクの実行と専門知識の維持を担当。
-  - `agents/deshi-skill-expert/`: スキル作成の専門家。
-  - 各ディレクトリ内に `rules`, `knowledge`, `verification`, `collection`, `generation` などの専門リソースを持つ。
+  - `deshi-skill-expert`: スキル作成の専門家。
 
 ## 3. 命名規則
 

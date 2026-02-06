@@ -18,7 +18,7 @@
 - **Toranomaki (手順・テンプレート)**: `makimono/toranomaki/`
 
 ### 2. 運用ルール (Project Standards)
-- **免許皆伝**: `menkyokaiden/README.md`
+- **プラグイン公開ガイド**: `menkyokaiden/README.md`
 
 ## 行動指針
 

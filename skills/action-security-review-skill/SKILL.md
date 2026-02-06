@@ -1,7 +1,6 @@
 ---
 name: security-review
-description: セキュリティ観点（認証/認可、入力検証、OWASP対策）でコード差分をレビューし、JSON形式で結果を出力する。
-trigger: セキュリティ関連コードのレビュー時
+description: セキュリティ観点（認証/認可、入力検証、OWASP対策）でコード差分をレビューし、JSON形式で結果を出力する。セキュリティ関連コードのレビュー時に使用する。
 ---
 
 # Security Code Review

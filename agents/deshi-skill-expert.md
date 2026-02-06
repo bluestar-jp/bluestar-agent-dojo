@@ -22,10 +22,10 @@ tools: Read, Write, Edit, Glob, Grep, Bash
       - 判断基準: `conditional_instructions/choosing_autonomy_level.md`
       - テンプレート: `single_action/skill_scaffolding.md`
   
-  ### 2. 運用ルール (Project Standards)
+### 2. 運用ルール (Project Standards)
 
-- **免許皆伝**: `menkyokaiden/README.md` (プロンプト管理の SoT ルール)
-- **システムプロンプト**: `CLAUDE.md` または `AGENTS.md` (使用ツールに応じて参照)
+- **プラグイン公開ガイド**: `menkyokaiden/README.md`
+- **システムプロンプト**: `CLAUDE.md`
 
 ## 行動指針
 

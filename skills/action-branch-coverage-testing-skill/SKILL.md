@@ -1,7 +1,6 @@
 ---
 name: branch-coverage-testing
-description: 分岐網羅テストを適用し、コード内のすべての分岐（true/false）を最低1回実行するテストケースを導出する。
-trigger: ソースコードが提供されている場合（ホワイトボックステストの基本技法として常に適用）
+description: 分岐網羅テストを適用し、コード内のすべての分岐（true/false）を最低1回実行するテストケースを導出する。ソースコードが提供されている場合にホワイトボックステストの基本技法として使用する。
 ---
 
 # Branch Coverage Testing

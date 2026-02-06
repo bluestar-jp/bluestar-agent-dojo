@@ -1,7 +1,6 @@
 ---
 name: tech-lead-review
-description: テックリード観点でコードをレビューし、アーキテクチャの妥当性、可読性、TDD観点での品質を評価する。
-trigger: 実装完了後のコードレビュー、またはproc-structured-dev-skillのPhase 4から呼び出し
+description: テックリード観点でコードをレビューし、アーキテクチャの妥当性、可読性、TDD観点での品質を評価する。実装完了後のコードレビュー時、またはproc-structured-dev-skillのPhase 4から使用する。
 ---
 
 # テックリードレビュー (Tech Lead Review)

@@ -1,7 +1,6 @@
 ---
 name: frontend-review
-description: フロントエンド観点（UI/UX、アクセシビリティ、パフォーマンス）でコード差分をレビューし、JSON形式で結果を出力する。
-trigger: フロントエンドコード（JSX/TSX/CSS）のレビュー時
+description: フロントエンド観点（UI/UX、アクセシビリティ、パフォーマンス）でコード差分をレビューし、JSON形式で結果を出力する。フロントエンドコード（JSX/TSX/CSS）のレビュー時に使用する。
 ---
 
 # Frontend Code Review

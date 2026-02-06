@@ -1,6 +1,7 @@
 ---
-name: proc-creating-skills-skill
-description: カスタムエージェントスキルの設計、構築、最適化を専門に行う。ベストプラクティスに基づいた高精度なスキルを定義する。
+name: creating-skills
+description: カスタムエージェントスキルの設計、構築、最適化を専門に行う。ベストプラクティスに基づいた高精度なスキルを定義するワークフロー。
+disable-model-invocation: true
 ---
 
 # Skill Creator Instructions
@@ -12,7 +13,6 @@ description: カスタムエージェントスキルの設計、構築、最適�
 ### 1. 知識の想起 (Analyze)
 
 - 常に `makimono/ryunomaki/guidelines/custom_agent_skill_best_practices.md` のベストプラクティスを意識してください。
-- 使用するAIツールの仕様については、対応する設定ファイル（.claude/, .gemini/ 等）を参照します。
 
 ### 2. 手順の策定 (Plan)
 
@@ -21,8 +21,8 @@ description: カスタムエージェントスキルの設計、構築、最適�
 
 ### 3. スキャフォールディング (Execute)
 
-- `makimono/toranomaki/single_action/skill_scaffolding.md` のテンプレートを使用して、実際のファイル群（SoTとなる実体ファイルと、各ツール向けのアダプター）を生成します。
-- プロンプトの管理は `menkyokaiden/README.md` の運用ルール（実体とラッパーの分離）を厳守してください。
+- `makimono/toranomaki/single_action/skill_scaffolding.md` のテンプレートを使用して、スキル定義ファイルを生成します。
+- プロンプトの管理は `menkyokaiden/README.md` のプラグイン公開ガイドを参照してください。
 
 ### 4. 品質の保証 (Verify)
 
@@ -31,9 +31,8 @@ description: カスタムエージェントスキルの設計、構築、最適�
 ## 専門リソース
 
 - **設計思想**: `makimono/ryunomaki/guidelines/custom_agent_skill_best_practices.md`
-- **ツール仕様**: 使用するAIツールのディレクトリ（.claude/, .gemini/ 等）を参照
 - **実務手順**: `makimono/toranomaki/`
-- **運用ルール**: `menkyokaiden/README.md`
+- **プラグイン公開ガイド**: `menkyokaiden/README.md`
 
 ## 注意事項
 

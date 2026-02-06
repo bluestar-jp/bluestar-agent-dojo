@@ -1,57 +1,149 @@
-# 免許皆伝 (Menkyokaiden)
+# 免許皆伝 (Menkyokaiden) - プラグイン公開ガイド
 
-このプロジェクトにおけるAIエージェント/スキルのプロンプト管理に関する運用ルール（Single Source of Truth）を定義します。
+このドキュメントは、bluestar-agent-dojo をAIエージェントプラグインとして公開・管理するための運用ガイドです。
 
-## 運用思想：コンテキスト・エンジニアリング中心設計
+## 概要
 
-AIエージェントのパフォーマンスを最大化するため、プロンプト（指示）の「実体」と「適用（コンテキスト注入）」を明確に分離します。
-これにより、特定のAIエージェント（Gemini CLI, Claude Code, Devinなど）の仕様変更に左右されず、純粋な「指示の質」を維持・向上させることを目的とします。
+bluestar-agent-dojo は **プラグインファーストアーキテクチャ** を採用しています。
 
-## 運用ルール
+- `agents/` と `skills/` がプロンプトの Single Source of Truth (SoT)
+- `plugin.json` がプラグインマニフェストとしてこれらを直接参照
+- 各AIツール固有のアダプターレイヤーは不要
 
-### 1. Source of Truth (SoT)
+## 1. Claude Code Plugin の要件
 
-プロンプトの「実体（Markdown本文）」は、以下のディレクトリで一元管理します。ここにはツール固有の設定（Frontmatter等）は含めません。
+### 1.1 plugin.json の必須フィールド
 
-- **`agents/`**: サブエージェント（人格、役割）のプロンプト実体
-- **`skills/`**: 特定技能（スキル、手順）のプロンプト実体
+```json
+{
+  "name": "bluestar-dojo",
+  "version": "1.0.0",
+  "description": "自律型AIエージェントの道場プラグイン",
+  "agents": "agents/",
+  "skills": "skills/"
+}
+```
 
-### 2. Context Injection (各ツールへの適用)
+### 1.2 エージェントのYAMLフロントマター
 
-各AIツール向けのディレクトリ（`.gemini/`, `.claude/` 等）には、SoTを参照してコンテキストを注入するための「ラッパーファイル」を配置します。
+```yaml
+---
+name: deshi-skill-expert
+description: カスタムエージェントスキル作成を専門とする弟子エージェント。
+tools: Read, Write, Edit, Glob, Grep, Bash
+---
+```
 
-- **構成原則**:
-  - **Frontmatter**: 各ツールの仕様に合わせたメタデータを定義。
-  - **Body**: 具体的な指示は書かず、`@agents/xxx.md` や `@skills/xxx.md` の記法（または各ツールのInclude機能）を用いてSoTを読み込ませる。
+**必須フィールド:**
 
-### ディレクトリ構成図
+- `name`: エージェント名（kebab-case）
+- `description`: いつ使うか明記
+
+**推奨フィールド:**
+
+- `tools`: 使用可能なツールを制限
+- `skills`: プリロードするスキル
+
+### 1.3 スキルのYAMLフロントマター
+
+```yaml
+---
+name: backend-review
+description: バックエンド観点でコード差分をレビューする。バックエンドコードのレビュー時に使用する。
+---
+```
+
+**必須フィールド:**
+
+- `name`: 簡潔な名前（slash commandになる）
+- `description`: 「いつ使うか」を明記
+
+**手順型スキル（proc-*）の追加フィールド:**
+
+```yaml
+---
+name: creating-skills
+description: スキル作成ワークフロー。
+disable-model-invocation: true
+---
+```
+
+- `disable-model-invocation: true`: ワークフロー実行スキルはユーザーが明示的に呼ぶ
+
+### 1.4 ドラフト規約
+
+未完成のエージェント/スキルは以下のいずれかでドラフト状態を表現:
+
+1. **フロントマターで指定**: `draft: true`
+2. **本文で明示**: `> **Status**: Draft - [理由]`
+
+ドラフト状態のリソースは検証時にスキップされます。
+
+## 2. 検証コマンド
+
+### ローカル検証
+
+```bash
+# プラグイン構造の検証
+make validate
+
+# または直接実行
+./scripts/validate-plugin.sh
+```
+
+### CI検証
+
+```bash
+# フロントマター検証
+python .github/scripts/verify_plugin_sync.py
+```
+
+## 3. バージョン管理・リリース手順
+
+### バージョン更新
+
+```bash
+# パッチバージョン (1.0.0 → 1.0.1)
+make patch
+
+# マイナーバージョン (1.0.0 → 1.1.0)
+make minor
+
+# メジャーバージョン (1.0.0 → 2.0.0)
+make major
+```
+
+### リリース
+
+```bash
+make release
+```
+
+## 4. ディレクトリ構成
 
 ```text
 bluestar-agent-dojo/
-├── agents/                      # 【SoT】エージェント定義（純粋Markdown）
-│   └── deshi_skill_expert.md
-├── skills/                      # 【SoT】スキル定義（純粋Markdown）
-│   └── proc-creating-skills-skill.md
-│
-├── .gemini/                     # 【Context】Gemini CLI用アダプター
-│   ├── agents/
-│   │   └── deshi-skill-expert.md  # -> @agents/deshi_skill_expert.md
-│   └── skills/
-│       └── proc-creating-skills-skill/
-│           └── SKILL.md           # -> @skills/proc-creating-skills-skill.md
-│
-└── .claude/                     # 【Context】Claude Code用アダプター
-    └── ...
+├── agents/                      # エージェント定義（SoT）
+│   ├── deshi-*.md               # 弟子エージェント
+│   └── shihan-*.md              # 師範エージェント
+├── skills/                      # スキル定義（SoT）
+│   ├── action-*-skill/          # 単一アクション型
+│   ├── proc-*-skill/            # 手順型
+│   └── cond-*-skill/            # 条件判断型
+├── .claude-plugin/
+│   ├── plugin.json              # プラグインマニフェスト
+│   └── marketplace.json         # マーケットプレイス登録情報
+├── .claude/
+│   ├── settings.json            # フック設定
+│   └── settings.local.json      # ローカル開発用設定
+├── menkyokaiden/
+│   └── README.md                # 本ドキュメント
+└── CLAUDE.md                    # Claude Code向けシステムプロンプト
 ```
 
-### 修正・追加フロー
+## 5. 関連スキル
 
-1. **SoTの編集**: `agents/` または `skills/` 内のファイルを新規作成・編集します。
-2. **アダプターの配置**: 新規追加の場合、`.gemini/`, `.claude/` 配下にラッパーファイルを配置します。
-3. **整合性チェック**: 以下のコマンドを実行して、修正漏れがないか確認します。
+詳細なワークフローは以下のスキルを参照:
 
-   ```bash
-   python3 .github/scripts/verify_sync.py
-   ```
-
-4. **反映**: 各エージェントは実行時に最新のSoTを自動的に読み込みます。
+- `/menkyokaiden-claude`: Claude Code プラグインの設定・検証ワークフロー
+- `/menkyokaiden-gemini`: Gemini Extensions の設定・検証ワークフロー（将来対応）

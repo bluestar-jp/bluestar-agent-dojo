@@ -1,6 +1,7 @@
 ---
-name: proc-reviewing-code-skill
-description: Git差分を4観点（フロントエンド、バックエンド、インフラ、セキュリティ）で並列レビューし、JSON形式で報告する。
+name: reviewing-code
+description: Git差分を4観点（フロントエンド、バックエンド、インフラ、セキュリティ）で並列レビューし、JSON形式で報告するワークフロー。
+disable-model-invocation: true
 ---
 
 # Code Review Skill
@@ -41,8 +42,7 @@ fi
 
 ```bash
 scripts/review-orchestrator.py \
-  --diff "$(git diff HEAD)" \
-  --context "$(cat .gemini/context.md)"
+  --diff "$(git diff HEAD)"
 ```
 
 内部では4つのGemini CLIプロセスを並列起動：
