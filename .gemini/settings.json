@@ -1,0 +1,20 @@
+{
+  "context": {
+    "fileName": ".gemini/context.md"
+  },
+  "experimental": {
+    "enableAgents": true,
+    "skills": true
+  },
+  "skills": {
+    "enabled": true
+  },
+  "hooks": {
+    "postToolCall": [
+      {
+        "command": "./scripts/lint_markdown.sh",
+        "toolNameMatcher": "edit_file|create_file|write_file"
+      }
+    ]
+  }
+}
