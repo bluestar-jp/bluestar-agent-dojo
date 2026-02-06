@@ -3,7 +3,7 @@
 既存リソースとの類似性をチェックする
 
 Usage:
-    check_similarity.py --new <new_skill_path> --existing <existing_dir> --threshold <0.0-1.0>
+    check-similarity.py --new <new_skill_path> --existing <existing_dir> --threshold <0.0-1.0>
 """
 
 import argparse

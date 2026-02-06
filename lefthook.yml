@@ -14,7 +14,7 @@ pre-commit:
     # agents/ および skills/ がプロジェクトの構成基準(CLAUDE_CODE_BEST_PRACTICES)を満たしているか検証
     verify-standards:
       glob: "{agents/*.md,skills/**/SKILL.md,scripts/*.py}"
-      run: python3 scripts/verify_best_practices.py
+      run: python3 scripts/verify-best-practices.py
 
     # 3. プラグイン構造検証 (Validate Plugin)
     # plugin.json の構文チェックや必須ファイルの存在確認

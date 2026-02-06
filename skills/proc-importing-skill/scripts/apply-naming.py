@@ -3,7 +3,7 @@
 命名規則を適用して新しい名前を生成する
 
 Usage:
-    apply_naming.py --input <analysis.json> --output <renamed.json>
+    apply-naming.py --input <analysis.json> --output <renamed.json>
 """
 
 import argparse

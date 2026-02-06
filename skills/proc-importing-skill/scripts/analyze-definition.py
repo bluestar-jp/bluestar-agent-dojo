@@ -3,7 +3,7 @@
 取得した定義ファイルを分析し、メタデータを抽出する
 
 Usage:
-    analyze_definition.py --input-dir <path> --type <skill|agent> --output <json_file>
+    analyze-definition.py --input-dir <path> --type <skill|agent> --output <json_file>
 """
 
 import argparse

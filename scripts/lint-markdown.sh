@@ -1,5 +1,5 @@
 #!/bin/bash
-# scripts/lint_markdown.sh
+# scripts/lint-markdown.sh
 # 目的: Markdownファイルが編集された時にmarkdownlint-cli2を実行する
 
 # .mdファイルが編集されたかチェック

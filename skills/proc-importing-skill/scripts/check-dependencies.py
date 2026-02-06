@@ -3,7 +3,7 @@
 依存関係を確認し、未インストールのツールをチェックする
 
 Usage:
-    check_dependencies.py --path <resource_path>
+    check-dependencies.py --path <resource_path>
 """
 
 import argparse

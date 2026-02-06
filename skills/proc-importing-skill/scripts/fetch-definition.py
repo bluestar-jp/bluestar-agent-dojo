@@ -3,7 +3,7 @@
 外部定義ファイルを取得するスクリプト
 
 Usage:
-    fetch_definition.py --source <URL or path> --type <skill|agent> --output-dir <path>
+    fetch-definition.py --source <URL or path> --type <skill|agent> --output-dir <path>
 """
 
 import argparse

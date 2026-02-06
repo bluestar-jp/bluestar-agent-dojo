@@ -3,7 +3,7 @@
 変換後のディレクトリ構造を検証する
 
 Usage:
-    validate_structure.py --path <resource_path> --type <skill|agent>
+    validate-structure.py --path <resource_path> --type <skill|agent>
 """
 
 import argparse

@@ -10,12 +10,14 @@
 エージェントは「特定の専門性を持った人格（ペルソナ）」であり、自律的に思考し、スキルやツールを組み合わせてタスクを遂行します。
 
 ### 1.1 命名規則
+
 - **ファイル名**: `(shihan|deshi)-[role].md`
   - `shihan`: 計画、判断、統合を行う指揮官・上級者。
   - `deshi`: 特定領域の作業を実行する専門家・実務者。
   - 例: `shihan-code-review.md`, `deshi-frontend-reviewer.md`
 
 ### 1.2 ファイルフォーマット
+
 Frontmatter によるメタデータ定義と、本文による振る舞いの定義が必要です。
 
 ```markdown
@@ -54,12 +56,14 @@ skills:
 スキルは「特定のタスクを遂行するための手順とツールのパッケージ」です。エージェントによって呼び出されます。
 
 ### 2.1 命名規則
+
 - **ディレクトリ名**: `(proc|action)-[action]-skill`
   - `proc` (Procedure): 複数の工程を含む複合プロセス（例：開発フロー全体、インポート作業）。
   - `action` (Action): 単一の明確なタスク（例：コードレビュー、テスト実行、差分抽出）。
   - 例: `proc-structured-dev-skill`, `action-git-delivery-skill`
 
 ### 2.2 ディレクトリ構造
+
 ```text
 skills/my-skill/
 ├── SKILL.md          (必須: 定義本体)

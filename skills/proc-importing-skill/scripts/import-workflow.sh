@@ -3,7 +3,7 @@
 # 外部定義のインポートワークフローを統合実行する
 #
 # Usage:
-#   import_workflow.sh --source <URL or path> --type <skill|agent> [--auto-approve]
+#   import-workflow.sh --source <URL or path> --type <skill|agent> [--auto-approve]
 
 set -euo pipefail
 
@@ -116,7 +116,7 @@ echo ""
 
 # 1.1 外部定義を取得
 log_info "Fetching definition from source..."
-python3 "$SCRIPT_DIR/fetch_definition.py" \
+python3 "$SCRIPT_DIR/fetch-definition.py" \
     --source "$SOURCE" \
     --type "$RESOURCE_TYPE" \
     --output-dir "$STAGING_DIR" || error_exit "Failed to fetch definition"
@@ -125,7 +125,7 @@ echo ""
 
 # 1.2 定義を分析
 log_info "Analyzing definition..."
-python3 "$SCRIPT_DIR/analyze_definition.py" \
+python3 "$SCRIPT_DIR/analyze-definition.py" \
     --input-dir "$STAGING_DIR" \
     --type "$RESOURCE_TYPE" \
     --output "$WORK_DIR/analysis.json" || error_exit "Failed to analyze definition"
@@ -134,7 +134,7 @@ echo ""
 
 # 1.3 命名規則を適用
 log_info "Applying naming conventions..."
-python3 "$SCRIPT_DIR/apply_naming.py" \
+python3 "$SCRIPT_DIR/apply-naming.py" \
     --input "$WORK_DIR/analysis.json" \
     --output "$WORK_DIR/renamed.json" || error_exit "Failed to apply naming"
 
@@ -213,7 +213,7 @@ elif [ "$RESOURCE_TYPE" = "agent" ]; then
 fi
 
 log_info "Checking similarity with existing resources..."
-python3 "$SCRIPT_DIR/check_similarity.py" \
+python3 "$SCRIPT_DIR/check-similarity.py" \
     --new "$STAGING_DIR" \
     --existing "$EXISTING_DIR" \
     --threshold 0.7 \
@@ -254,7 +254,7 @@ echo ""
 
 # 3.1 ディレクトリ構造を変換
 log_info "Converting directory structure..."
-python3 "$SCRIPT_DIR/convert_structure.py" \
+python3 "$SCRIPT_DIR/convert-structure.py" \
     --input "$STAGING_DIR" \
     --output "$CONVERTED_DIR" \
     --config "$WORK_DIR/renamed.json" || error_exit "Failed to convert structure"
@@ -290,7 +290,7 @@ echo ""
 
 # 4.1 構造検証
 log_info "Validating structure..."
-python3 "$SCRIPT_DIR/validate_structure.py" \
+python3 "$SCRIPT_DIR/validate-structure.py" \
     --path "$TARGET_PATH" \
     --type "$RESOURCE_TYPE" \
     --output "$WORK_DIR/validation.json" || {
@@ -301,7 +301,7 @@ echo ""
 
 # 4.2 依存関係チェック
 log_info "Checking dependencies..."
-python3 "$SCRIPT_DIR/check_dependencies.py" \
+python3 "$SCRIPT_DIR/check-dependencies.py" \
     --path "$TARGET_PATH" \
     --output "$WORK_DIR/dependencies.json" || {
     log_warning "Some dependencies are missing (see above)"

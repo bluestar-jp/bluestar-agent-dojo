@@ -12,7 +12,7 @@
   "hooks": {
     "postToolCall": [
       {
-        "command": "./scripts/lint_markdown.sh",
+        "command": "./scripts/lint-markdown.sh",
         "toolNameMatcher": "edit_file|create_file|write_file"
       }
     ]

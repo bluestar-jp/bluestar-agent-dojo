@@ -8,12 +8,12 @@
 
 ```bash
 # GitHubからスキルをインポート
-./scripts/import_workflow.sh \
+./scripts/import-workflow.sh \
   --source "https://github.com/example/ai-skill" \
   --type skill
 
 # ローカルファイルからエージェントをインポート
-./scripts/import_workflow.sh \
+./scripts/import-workflow.sh \
   --source "/path/to/agent-definition" \
   --type agent
 ```
@@ -22,7 +22,7 @@
 
 ```bash
 # ユーザー確認をスキップ（注意して使用）
-./scripts/import_workflow.sh \
+./scripts/import-workflow.sh \
   --source "https://github.com/example/ai-skill" \
   --type skill \
   --auto-approve
@@ -84,40 +84,40 @@
 
 ```bash
 # 1. 取得
-python3 scripts/fetch_definition.py \
+python3 scripts/fetch-definition.py \
   --source "URL" \
   --type skill \
   --output-dir /tmp/import
 
 # 2. 分析
-python3 scripts/analyze_definition.py \
+python3 scripts/analyze-definition.py \
   --input-dir /tmp/import \
   --type skill \
   --output /tmp/analysis.json
 
 # 3. 命名規則適用
-python3 scripts/apply_naming.py \
+python3 scripts/apply-naming.py \
   --input /tmp/analysis.json \
   --output /tmp/renamed.json
 
 # 4. 構造変換
-python3 scripts/convert_structure.py \
+python3 scripts/convert-structure.py \
   --input /tmp/import \
   --output /tmp/converted \
   --config /tmp/renamed.json
 
 # 5. 類似性チェック
-python3 scripts/check_similarity.py \
+python3 scripts/check-similarity.py \
   --new /tmp/converted/skills/new-skill \
   --existing ./skills
 
 # 6. 構造検証
-python3 scripts/validate_structure.py \
+python3 scripts/validate-structure.py \
   --path ./skills/new-skill \
   --type skill
 
 # 7. 依存関係チェック
-python3 scripts/check_dependencies.py \
+python3 scripts/check-dependencies.py \
   --path ./skills/new-skill
 ```
 
@@ -126,7 +126,7 @@ python3 scripts/check_dependencies.py \
 すべてのフェーズを自動実行:
 
 ```bash
-./scripts/import_workflow.sh \
+./scripts/import-workflow.sh \
   --source "URL or path" \
   --type skill
 ```
@@ -165,14 +165,14 @@ proc-importing-skill/
 ├── SKILL.md                          # メインドキュメント
 ├── README.md                         # このファイル
 ├── scripts/                          # 実行スクリプト
-│   ├── import_workflow.sh           # 統合ワークフロー
-│   ├── fetch_definition.py          # 外部定義の取得
-│   ├── analyze_definition.py        # 構造分析
-│   ├── apply_naming.py              # 命名規則適用
-│   ├── convert_structure.py         # ディレクトリ構造変換
-│   ├── check_similarity.py          # 類似性チェック
-│   ├── validate_structure.py        # 構造検証
-│   └── check_dependencies.py        # 依存関係確認
+│   ├── import-workflow.sh           # 統合ワークフロー
+│   ├── fetch-definition.py          # 外部定義の取得
+│   ├── analyze-definition.py        # 構造分析
+│   ├── apply-naming.py              # 命名規則適用
+│   ├── convert-structure.py         # ディレクトリ構造変換
+│   ├── check-similarity.py          # 類似性チェック
+│   ├── validate-structure.py        # 構造検証
+│   └── check-dependencies.py        # 依存関係確認
 └── references/                       # 参照ドキュメント
     ├── naming-conversion.md         # 命名規則変換ルール
     ├── structure-template.json      # ディレクトリ構造テンプレート
@@ -188,7 +188,7 @@ proc-importing-skill/
 ```bash
 cd /Users/aono/develop/bluestar/bluestar-agent-dojo
 
-./skills/proc-importing-skill/scripts/import_workflow.sh \
+./skills/proc-importing-skill/scripts/import-workflow.sh \
   --source "https://github.com/anthropics/claude-code-examples/tree/main/skills/formatter" \
   --type skill
 ```
@@ -256,7 +256,7 @@ Import Complete!
 ### 例2: ローカルファイルからエージェントをインポート
 
 ```bash
-./skills/proc-importing-skill/scripts/import_workflow.sh \
+./skills/proc-importing-skill/scripts/import-workflow.sh \
   --source "/Users/aono/Downloads/security-analyst" \
   --type agent
 ```
@@ -264,7 +264,7 @@ Import Complete!
 ### 例3: 自動承認モードでインポート
 
 ```bash
-./skills/proc-importing-skill/scripts/import_workflow.sh \
+./skills/proc-importing-skill/scripts/import-workflow.sh \
   --source "https://gist.github.com/username/abc123" \
   --type skill \
   --auto-approve

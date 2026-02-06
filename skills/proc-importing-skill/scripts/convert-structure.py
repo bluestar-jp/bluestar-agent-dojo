@@ -3,7 +3,7 @@
 ディレクトリ構造をbluestar-agent-dojo標準に変換する
 
 Usage:
-    convert_structure.py --input <input_dir> --output <output_dir> --config <renamed.json>
+    convert-structure.py --input <input_dir> --output <output_dir> --config <renamed.json>
 """
 
 import argparse

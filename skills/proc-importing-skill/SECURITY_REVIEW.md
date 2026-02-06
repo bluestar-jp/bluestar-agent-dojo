@@ -7,7 +7,7 @@ Status: Requires Security Enhancements
 
 ### 1. Command Injection Risk (HIGH)
 
-**Location**: `scripts/fetch_definition.py` lines 96-113, 160-163
+**Location**: `scripts/fetch-definition.py` lines 96-113, 160-163
 
 **Issue**: External URLs are downloaded without validation, potentially allowing:
 
@@ -38,7 +38,7 @@ def _validate_url(url: str) -> bool:
 
 ### 2. Path Traversal Vulnerability (MEDIUM)
 
-**Location**: `scripts/import_workflow.sh` lines 261-267
+**Location**: `scripts/import-workflow.sh` lines 261-267
 
 **Issue**: User-provided paths are used without sanitization:
 
@@ -69,7 +69,7 @@ fi
 
 ### 4. Missing Input Validation
 
-**Location**: `scripts/import_workflow.sh` lines 64-84
+**Location**: `scripts/import-workflow.sh` lines 64-84
 
 **Issue**: Command-line arguments lack proper validation
 
@@ -84,7 +84,7 @@ fi
 
 ### 5. Insufficient Content Type Verification
 
-**Location**: `scripts/fetch_definition.py`
+**Location**: `scripts/fetch-definition.py`
 
 **Issue**: Downloaded files are assumed to be safe based on extension only
 
@@ -98,7 +98,7 @@ fi
 
 ### 6. Temporary File Cleanup
 
-**Location**: `scripts/fetch_definition.py` line 258
+**Location**: `scripts/fetch-definition.py` line 258
 
 **Issue**: Temporary files might not be cleaned up on error
 

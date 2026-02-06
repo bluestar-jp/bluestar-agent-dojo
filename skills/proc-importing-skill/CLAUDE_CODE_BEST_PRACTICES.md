@@ -53,7 +53,7 @@ skills/proc-importing-skill/
 外部URLからスキル定義を取得する際は、WebFetchツールを使用することを推奨します。
 
 ```python
-# fetch_definition.pyで実装する場合の例
+# fetch-definition.pyで実装する場合の例
 # Claude CodeのWebFetchツールを優先的に使用
 if claude_code_available:
     use_webfetch_tool(url)
@@ -79,14 +79,14 @@ Read tool with file_path parameter
 
 **問題点**:
 
-1. `fetch_definition.py` (lines 160-163, 224-228)
+1. `fetch-definition.py` (lines 160-163, 224-228)
 
    ```python
    # curl を直接使用
    subprocess.run(['curl', '-L', '-o', str(output_file), self.source])
 ```text
 
-2. `import_workflow.sh` (lines 267)
+2. `import-workflow.sh` (lines 267)
 
    ```bash
    cp -r "$CONVERTED_PATH" "$TARGET_PATH"
@@ -117,7 +117,7 @@ Claude Code統合時の推奨事項を明記すること。
 - ✅ エラーメッセージが詳細
 - ✅ 終了コードを適切に返す
 
-**例** (validate_structure.py:277-298):
+**例** (validate-structure.py:277-298):
 
 ```python
 try:

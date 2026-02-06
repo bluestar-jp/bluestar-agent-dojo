@@ -4,7 +4,7 @@
 
 ### セキュリティ強化 🔒
 
-#### fetch_definition.py
+#### fetch-definition.py
 
 - **URL検証機能を追加**
   - 許可されたスキーム: http, https のみ
@@ -25,7 +25,7 @@
   - コマンドインジェクション対策
   - 出力ディレクトリの検証
 
-#### import_workflow.sh
+#### import-workflow.sh
 
 - **セキュリティ検証を追加**
   - 取得元URLの危険な文字チェック
@@ -111,7 +111,7 @@
 ## 検証結果
 
 ```bash
-$ python3 skills/proc-importing-skill/scripts/validate_structure.py \
+$ python3 skills/proc-importing-skill/scripts/validate-structure.py \
     --path skills/proc-importing-skill --type skill
 
 ✓ Validation PASSED

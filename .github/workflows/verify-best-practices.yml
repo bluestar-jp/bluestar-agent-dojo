@@ -6,12 +6,12 @@ on:
     paths:
       - "agents/**"
       - "skills/**"
-      - "scripts/verify_best_practices.py"
+      - "scripts/verify-best-practices.py"
   pull_request:
     paths:
       - "agents/**"
       - "skills/**"
-      - "scripts/verify_best_practices.py"
+      - "scripts/verify-best-practices.py"
 
 jobs:
   verify:
@@ -36,4 +36,4 @@ jobs:
           fi
 
       - name: Run verification script
-        run: python scripts/verify_best_practices.py
+        run: python scripts/verify-best-practices.py

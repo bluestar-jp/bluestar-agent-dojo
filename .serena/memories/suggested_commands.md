@@ -9,9 +9,9 @@
 
 ## Verification & Linting
 
-- **構成検証**: `python3 scripts/verify_best_practices.py`
+- **構成検証**: `python3 scripts/verify-best-practices.py`
 - **プラグイン検証**: `sh scripts/validate-plugin.sh`
-- **Markdown Lint**: `sh scripts/lint_markdown.sh`
+- **Markdown Lint**: `sh scripts/lint-markdown.sh`
 - **バージョン更新**: `sh scripts/bump-version.sh <new_version>`
 
 ## Specialized Skill Scripts

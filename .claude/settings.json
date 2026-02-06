@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "./scripts/lint_markdown.sh"
+            "command": "./scripts/lint-markdown.sh"
           }
         ]
       }
