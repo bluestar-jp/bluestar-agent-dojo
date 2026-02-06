@@ -10,10 +10,17 @@
     "enabled": true
   },
   "hooks": {
-    "postToolCall": [
+    "AfterTool": [
       {
-        "command": "./scripts/lint-markdown.sh",
-        "toolNameMatcher": "edit_file|create_file|write_file"
+        "matcher": "^(edit_file|create_file|write_file)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/lint-markdown.sh",
+            "name": "lint-markdown-after-file-edit",
+            "description": "Runs markdown linter after file modification tools."
+          }
+        ]
       }
     ]
   }
