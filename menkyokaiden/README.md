@@ -133,9 +133,6 @@ bluestar-agent-dojo/
 ├── .claude-plugin/
 │   ├── plugin.json              # プラグインマニフェスト
 │   └── marketplace.json         # マーケットプレイス登録情報
-├── .claude/
-│   ├── settings.json            # フック設定
-│   └── settings.local.json      # ローカル開発用設定
 ├── menkyokaiden/
 │   └── README.md                # 本ドキュメント
 └── CLAUDE.md                    # Claude Code向けシステムプロンプト
