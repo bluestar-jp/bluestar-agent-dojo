@@ -30,6 +30,7 @@ disable-model-invocation: true
 ### 4. 品質の保証 (Verify)
 
 - 作成したスキルが `makimono/ryunomaki/guidelines/custom_agent_skill_best_practices.md` の原則および `makimono/toranomaki/procedure/skill_creation_workflow.md` の手順を満たしているか自己検証してください。
+- 特に、エージェント定義やスキルの質については `makimono/ryunomaki/guidelines/agent_review_criteria.md` のチェックリストを適用し、良い例のパターンが組み込まれているか確認してください。
 
 ## 専門リソース
 

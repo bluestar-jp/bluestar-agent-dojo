@@ -27,6 +27,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 
 - **Ryunomaki (概念・仕様)**: `makimono/ryunomaki/`
   - ガイドライン: `guidelines/custom_agent_skill_best_practices.md`
+  - レビュー基準: `guidelines/agent_review_criteria.md`
 - **Toranomaki (手順・テンプレート)**: `makimono/toranomaki/`
       - 手順書: `procedure/skill_creation_workflow.md`
       - 判断基準: `conditional_instructions/choosing_autonomy_level.md`
