@@ -1,6 +1,6 @@
 # 開発者ガイド
 
-このプロジェクトの開発に参加するための環境構築手順です。
+このプロジェクトの開発に参加する際のガイドラインです。
 
 ## 必須ツール (Prerequisites)
 
@@ -64,9 +64,9 @@ lefthook run pre-commit --commands ruff
 - **Agents**: `agents/(shihan|deshi)-[name].md`
 - **Skills**: `skills/(proc|action|cond)-[name]-skill/SKILL.md`
 
-## コントリビューション・プロセス
+## 開発プロセス
 
-### 1. Issue & Pull Request
+### 1. Issue / Pull Request
 
 1. **Issue作成**: 大きな変更を加える前には、まずIssueを作成して方針を議論してください。
 2. **Branch作成**: `feature/xxx` や `fix/xxx` のような記述的なブランチ名を使用してください。
@@ -109,4 +109,4 @@ type(scope): subject
 - **世界観の維持**:
   - 「師範 (Shihan)」「弟子 (Deshi)」「巻物 (Makimono)」といったプロジェクト固有の用語・メタファーを正しく使用し、世界観を壊さないように配慮してください。
 
-Happy Coding! 🥋
+押忍 🥋
