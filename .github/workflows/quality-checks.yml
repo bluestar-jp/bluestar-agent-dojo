@@ -1,0 +1,100 @@
+name: Quality Checks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.sh"
+      - "**/*.py"
+      - "**/*.yml"
+      - "**/*.yaml"
+      - "Makefile"
+      - "scripts/**"
+      - ".claude-plugin/**"
+      - "CLAUDE.md"
+      - "LICENSE"
+      - ".yamllint"
+  pull_request:
+    paths:
+      - "**/*.sh"
+      - "**/*.py"
+      - "**/*.yml"
+      - "**/*.yaml"
+      - "Makefile"
+      - "scripts/**"
+      - ".claude-plugin/**"
+      - "CLAUDE.md"
+      - "LICENSE"
+      - ".yamllint"
+  workflow_dispatch:
+
+# 並列実行の制御: 同じPRに対する新しいプッシュがあった場合、実行中のジョブをキャンセル
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# 権限設定: コードの読み取りのみを許可
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 5 # タイムアウト設定: 5分で停止
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Run ShellCheck
+        # プロジェクト内の全シェルスクリプト (.sh) を検索して静的解析を実行
+        # .git ディレクトリは除外
+        run: |
+          find . -type f -name "*.sh" -not -path "./.git/*" -print0 | xargs -0 shellcheck
+
+  yamllint:
+    name: YAML Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Run yamllint
+        # .yamllint の設定に基づいてYAMLファイルの構文をチェック
+        run: yamllint .
+
+  ruff:
+    name: Ruff (Python Lint)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Run Ruff
+        # 高速なPythonリンター Ruff を実行してコード品質をチェック
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: "check ."
+
+  validate-plugin:
+    name: Validate Plugin Structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Validate Plugin
+        # Makefile経由で scripts/validate-plugin.sh を実行
+        # 必須ファイルの存在確認や整合性チェックを行う
+        run: make validate

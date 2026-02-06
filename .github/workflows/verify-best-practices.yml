@@ -7,15 +7,30 @@ on:
       - "agents/**"
       - "skills/**"
       - "scripts/verify-best-practices.py"
+      - ".claude-plugin/plugin.json"
+      - "marketplace.json"
   pull_request:
     paths:
       - "agents/**"
       - "skills/**"
       - "scripts/verify-best-practices.py"
+      - ".claude-plugin/plugin.json"
+      - "marketplace.json"
+
+# 並列実行の制御: 同じPRに対する新しいプッシュがあった場合、実行中のジョブをキャンセル
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# 権限設定: コードの読み取りのみを許可
+permissions:
+  contents: read
 
 jobs:
   verify:
+    name: Verify Best Practices
     runs-on: ubuntu-latest
+    timeout-minutes: 5 # タイムアウト設定: 5分で停止
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -26,8 +41,8 @@ jobs:
           python-version: "3.13"
 
       - name: Verify JSON manifests
+        # プラグイン設定ファイル (JSON) の基本的な構文チェック
         run: |
-          # JSON validation
           if [ -f ".claude-plugin/plugin.json" ]; then
             python -m json.tool .claude-plugin/plugin.json > /dev/null
           fi
@@ -36,4 +51,5 @@ jobs:
           fi
 
       - name: Run verification script
+        # エージェントとスキルの定義がベストプラクティスに従っているか検証
         run: python scripts/verify-best-practices.py

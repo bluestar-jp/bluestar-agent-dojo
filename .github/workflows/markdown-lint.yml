@@ -4,16 +4,32 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "**/*.md"
   pull_request:
+    paths:
+      - "**/*.md"
+
+# 並列実行の制御: 同じPRに対する新しいプッシュがあった場合、実行中のジョブをキャンセル
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# 権限設定: コードの読み取りのみを許可
+permissions:
+  contents: read
 
 jobs:
   markdown-lint:
+    name: Markdown Lint
     runs-on: ubuntu-latest
+    timeout-minutes: 5 # タイムアウト設定: 5分で停止
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
       - name: Run markdownlint-cli2
+        # markdownlint-cli2 を使用してドキュメントの構文をチェック
         uses: DavidAnson/markdownlint-cli2-action@v22
         with:
           globs: "**/*.md"
