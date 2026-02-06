@@ -1,14 +1,12 @@
 {
-  "name": "bluestar-dojo",
-  "owner": { "name": "bluestar-jp" },
-  "metadata": { "description": "BlueStarエージェント道場", "version": "1.0.0" },
   "plugins": [
     {
+      "id": "bluestar-agent-dojo",
+      "version": "0.0.0",
       "name": "bluestar-agent-dojo",
-      "source": "./",
-      "description": "道場で鍛えられた屈強なAIエージェントたち",
-      "version": "1.0.0",
-      "category": "productivity"
+      "description": "自律型AIエージェントの道場プラグイン。テスト設計・コードレビュー等の専門エージェントとスキルを提供する。",
+      "author": "bluestar-jp",
+      "repository": "https://github.com/bluestar-jp/bluestar-agent-dojo"
     }
   ]
 }
