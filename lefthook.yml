@@ -22,6 +22,24 @@ pre-commit:
       glob: "{.claude-plugin/*.json,marketplace.json,skills/**,agents/**}"
       run: sh scripts/validate-plugin.sh
 
+    # 4. Shell Script Analysis (ShellCheck)
+    # シェルスクリプトの静的解析
+    shellcheck:
+      glob: "*.sh"
+      run: shellcheck {staged_files}
+
+    # 5. Python Lint (Ruff)
+    # 高速なPythonリンター
+    ruff:
+      glob: "*.py"
+      run: ruff check --fix {staged_files}
+
+    # 6. YAML Lint (yamllint)
+    # YAMLファイルの構文チェック
+    yamllint:
+      glob: "*.{yml,yaml}"
+      run: yamllint {staged_files}
+
 commit-msg:
   commands:
     # 4. コミットメッセージ規約チェック (Conventional Commits)

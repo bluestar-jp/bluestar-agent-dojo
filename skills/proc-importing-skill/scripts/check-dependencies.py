@@ -13,7 +13,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Set
+from typing import Dict
 
 
 class DependencyChecker:
@@ -101,7 +101,7 @@ class DependencyChecker:
             # Pythonパッケージ
             python_pkgs = re.findall(r'`([\w-]+)`', dep_text)
             for pkg in python_pkgs:
-                if not pkg in cli_tools:
+                if pkg not in cli_tools:
                     self.dependencies['python_packages'].add(pkg)
 
     def _parse_code_blocks(self, content: str):

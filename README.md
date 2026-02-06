@@ -118,6 +118,10 @@ AIエージェントが参照する共有リソースです。
 - **Single Action (`action-*-skill`)**: 単一のアクションを実行するスキル。
 - **Conditional (`cond-*-skill`)**: 状況に応じて分岐する高度なロジック。
 
+## 🤝 開発への参加
+
+開発環境のセットアップ手順や貢献のガイドラインについては、[CONTRIBUTING.md](./CONTRIBUTING.md) を参照してください。
+
 ## 📜 ライセンス
 
 [Apache License 2.0](./LICENSE)

@@ -32,6 +32,7 @@ else
 fi
 
 # 一時ディレクトリのクリーンアップ
+# shellcheck disable=SC2329
 cleanup() {
   if [ -n "${TEMP_DIR:-}" ] && [ -d "$TEMP_DIR" ]; then
     rm -rf "$TEMP_DIR"
@@ -103,7 +104,7 @@ _REVIEW_PROMPT_EOF_
         # エラーハンドリング：失敗時はエラー情報を記録（jqで安全にJSON構築）
         jq -n \
           --arg aspect "$aspect" \
-          --arg stderr "$(cat "${TEMP_DIR}/review_${aspect}.err" 2>/dev/null | head -n 10)" \
+          --arg stderr "$(head -n 10 "${TEMP_DIR}/review_${aspect}.err" 2>/dev/null)" \
           '{aspect: $aspect, error: "Review failed", stderr: $stderr}' \
           > "${TEMP_DIR}/review_${aspect}.json"
         echo "Error: ${aspect} review failed" >&2
@@ -118,6 +119,7 @@ _REVIEW_PROMPT_EOF_
 
       if [ -n "$RESPONSE" ]; then
         # Markdownコードブロック（```json ... ```）を除去
+        # shellcheck disable=SC2016
         echo "$RESPONSE" | sed -n '/^```json$/,/^```$/p' | sed '1d;$d' > "${TEMP_DIR}/review_${aspect}.json"
 
         # JSONが空または不正な場合は、元のレスポンスから直接抽出を試みる
@@ -188,9 +190,7 @@ echo "" >&2
 echo "Merging results..." >&2
 
 # jqを使用して各JSONファイルを配列にマージ
-ASPECTS_JSON=$(jq -s '.' "${TEMP_DIR}"/review_{frontend,backend,infrastructure,security}.json 2>/dev/null)
-
-if [ $? -eq 0 ] && [ -n "$ASPECTS_JSON" ]; then
+if ASPECTS_JSON=$(jq -s '.' "${TEMP_DIR}"/review_{frontend,backend,infrastructure,security}.json 2>/dev/null) && [ -n "$ASPECTS_JSON" ]; then
   # 成功：review_summaryと統合
   jq -n \
     --argjson summary "$(jq -n \

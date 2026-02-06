@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import os
 import re
 import sys
 from pathlib import Path
@@ -80,7 +79,7 @@ def validate_agent(file_path):
     
     # 1. Naming convention
     if not re.match(r'^(shihan|deshi)-[a-z-]+\.md$', name):
-        errors.append(f"命名規則違反: (shihan|deshi)-[a-z-]+.md に一致させる必要があります。")
+        errors.append("命名規則違反: (shihan|deshi)-[a-z-]+.md に一致させる必要があります。")
     
     content = file_path.read_text(encoding='utf-8')
     
@@ -104,7 +103,7 @@ def validate_skill(dir_path):
     
     # 1. Naming convention
     if not re.match(r'^(proc|action)-[a-z-]+-skill$', name):
-        errors.append(f"命名規則違反: (proc|action)-[a-z-]+-skill に一致させる必要があります。")
+        errors.append("命名規則違反: (proc|action)-[a-z-]+-skill に一致させる必要があります。")
     
     skill_md = dir_path / "SKILL.md"
     if not skill_md.exists():

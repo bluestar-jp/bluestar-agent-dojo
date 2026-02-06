@@ -23,7 +23,7 @@ jobs:
   markdown-lint:
     name: Markdown Lint
     runs-on: ubuntu-latest
-    timeout-minutes: 5 # タイムアウト設定: 5分で停止
+    timeout-minutes: 5  # タイムアウト設定: 5分で停止
     steps:
       - name: Checkout code
         uses: actions/checkout@v6

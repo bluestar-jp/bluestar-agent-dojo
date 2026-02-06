@@ -94,7 +94,7 @@ if [ "$RESOURCE_TYPE" != "skill" ] && [ "$RESOURCE_TYPE" != "agent" ]; then
 fi
 
 # セキュリティ検証: 危険な文字のチェック
-if [[ "$SOURCE" =~ [;\&\|\`\$] ]]; then
+if echo "$SOURCE" | grep -qE "[;&|\`$]"; then
     error_exit "セキュリティ: 取得元に不正な文字が含まれています"
 fi
 
@@ -177,14 +177,14 @@ if [ -d "$TARGET_PATH" ]; then
     echo ""
 
     if [ "$AUTO_APPROVE" = false ]; then
-        read -p "Choose option [1/2/3]: " choice
+        read -r -p "Choose option [1/2/3]: " choice
         case $choice in
             1)
                 log_info "Will overwrite existing resource"
                 rm -rf "$TARGET_PATH"
                 ;;
             2)
-                read -p "Enter new name: " custom_name
+                read -r -p "Enter new name: " custom_name
                 NEW_NAME="$custom_name"
                 BASE_PATH="${BASE_PATH%%/*}/$NEW_NAME"
                 TARGET_PATH="$PROJECT_ROOT/$BASE_PATH"
@@ -222,7 +222,7 @@ python3 "$SCRIPT_DIR/check-similarity.py" \
 
     if [ "$AUTO_APPROVE" = false ]; then
         echo ""
-        read -p "Continue anyway? [y/N]: " continue_choice
+        read -r -p "Continue anyway? [y/N]: " continue_choice
         if [ "$continue_choice" != "y" ] && [ "$continue_choice" != "Y" ]; then
             log_info "Import cancelled by user"
             cleanup
@@ -235,7 +235,7 @@ echo ""
 
 # 最終確認
 if [ "$AUTO_APPROVE" = false ]; then
-    read -p "Proceed with import? [y/N]: " final_confirm
+    read -r -p "Proceed with import? [y/N]: " final_confirm
     if [ "$final_confirm" != "y" ] && [ "$final_confirm" != "Y" ]; then
         log_info "Import cancelled by user"
         cleanup
