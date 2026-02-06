@@ -23,9 +23,7 @@ fi
 echo "$CHANGES" | xargs git add
 
 # コミットメッセージの作成（トレーラーの前に空行を入れるのが一般的）
-FULL_MESSAGE=$(printf "%s
-
-%s" "$MESSAGE" "$TRAILER")
+FULL_MESSAGE=$(printf "%s\n\n%s" "$MESSAGE" "$TRAILER")
 
 # コミット実行
 git commit -m "$FULL_MESSAGE"
@@ -38,8 +36,8 @@ COMMITTED_FILES=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" | j
 git push origin HEAD
 
 # 結果をJSONで出力
-jq -n 
-  --arg status "success" 
-  --arg hash "$COMMIT_HASH" 
-  --argjson files "$COMMITTED_FILES" 
+jq -n \
+  --arg status "success" \
+  --arg hash "$COMMIT_HASH" \
+  --argjson files "$COMMITTED_FILES" \
   '{status: $status, commit_hash: $hash, committed_files: $files, message: "Commit and push completed."}'
