@@ -31,8 +31,8 @@ disable-model-invocation: true
    - proc-* スキルの `disable-model-invocation: true` 確認
    - ドラフト状態のスキルは検証スキップ
 
-4. **バージョン整合性**
-   - plugin.json と marketplace.json のバージョン一致
+4. **バージョン検証**
+   - plugin.json のバージョンがセマンティックバージョニング形式であること
 
 ### Phase 2: Agree（確認）
 

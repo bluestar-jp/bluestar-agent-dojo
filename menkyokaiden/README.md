@@ -134,8 +134,7 @@ bluestar-agent-dojo/
 │   ├── action-*-skill/          # 単一アクション型
 │   └── proc-*-skill/            # 手順型
 ├── .claude-plugin/
-│   ├── plugin.json              # プラグインマニフェスト
-│   └── marketplace.json         # マーケットプレイス登録情報
+│   └── plugin.json              # プラグインマニフェスト
 ├── menkyokaiden/
 │   └── README.md                # 本ドキュメント
 └── CLAUDE.md                    # Claude Code向けシステムプロンプト

@@ -38,7 +38,7 @@ echo ""
 # Check required files
 echo "=== Required Files ==="
 
-for file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json" "CLAUDE.md" "LICENSE"; do
+for file in ".claude-plugin/plugin.json" "CLAUDE.md" "LICENSE"; do
     if [ -f "$file" ]; then
         ok "$file exists"
     else
@@ -50,30 +50,26 @@ done
 echo ""
 echo "=== JSON Validation ==="
 
-for json_file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json"; do
-    if [ -f "$json_file" ]; then
-        if jq empty "$json_file" 2>/dev/null; then
-            ok "$json_file is valid JSON"
-        else
-            error "$json_file is invalid JSON"
-        fi
+PLUGIN_JSON=".claude-plugin/plugin.json"
+if [ -f "$PLUGIN_JSON" ]; then
+    if jq empty "$PLUGIN_JSON" 2>/dev/null; then
+        ok "$PLUGIN_JSON is valid JSON"
+    else
+        error "$PLUGIN_JSON is invalid JSON"
     fi
-done
+fi
 
-# Check version consistency
+# Check version
 echo ""
-echo "=== Version Consistency ==="
+echo "=== Version Check ==="
 
 PLUGIN_VERSION=$(jq -r .version .claude-plugin/plugin.json 2>/dev/null || echo "N/A")
-MARKETPLACE_VERSION=$(jq -r '.plugins[0].version' .claude-plugin/marketplace.json 2>/dev/null || echo "N/A")
-
 echo "plugin.json version: $PLUGIN_VERSION"
-echo "marketplace.json version: $MARKETPLACE_VERSION"
 
-if [ "$PLUGIN_VERSION" = "$MARKETPLACE_VERSION" ]; then
-    ok "Versions are consistent"
+if [ "$PLUGIN_VERSION" != "N/A" ] && [ -n "$PLUGIN_VERSION" ]; then
+    ok "Version found in plugin.json"
 else
-    error "Version mismatch between plugin.json and marketplace.json"
+    error "Version not found or invalid in plugin.json"
 fi
 
 # Check skills

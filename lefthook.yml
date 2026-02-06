@@ -19,7 +19,7 @@ pre-commit:
     # 3. プラグイン構造検証 (Validate Plugin)
     # plugin.json の構文チェックや必須ファイルの存在確認
     validate-plugin:
-      glob: "{.claude-plugin/*.json,marketplace.json,skills/**,agents/**}"
+      glob: "{.claude-plugin/*.json,skills/**,agents/**}"
       run: sh scripts/validate-plugin.sh
 
     # 4. Shell Script Analysis (ShellCheck)

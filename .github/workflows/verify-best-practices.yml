@@ -8,14 +8,14 @@ on:
       - "skills/**"
       - "scripts/verify-best-practices.py"
       - ".claude-plugin/plugin.json"
-      - "marketplace.json"
+
   pull_request:
     paths:
       - "agents/**"
       - "skills/**"
       - "scripts/verify-best-practices.py"
       - ".claude-plugin/plugin.json"
-      - "marketplace.json"
+
 
 # 並列実行の制御: 同じPRに対する新しいプッシュがあった場合、実行中のジョブをキャンセル
 concurrency:
@@ -46,9 +46,7 @@ jobs:
           if [ -f ".claude-plugin/plugin.json" ]; then
             python -m json.tool .claude-plugin/plugin.json > /dev/null
           fi
-          if [ -f "marketplace.json" ]; then
-            python -m json.tool marketplace.json > /dev/null
-          fi
+
 
       - name: Run verification script
         # エージェントとスキルの定義がベストプラクティスに従っているか検証
