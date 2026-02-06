@@ -1,0 +1,39 @@
+name: Verify Best Practices
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "agents/**"
+      - "skills/**"
+      - "scripts/verify_best_practices.py"
+  pull_request:
+    paths:
+      - "agents/**"
+      - "skills/**"
+      - "scripts/verify_best_practices.py"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Verify JSON manifests
+        run: |
+          # JSON validation
+          if [ -f ".claude-plugin/plugin.json" ]; then
+            python -m json.tool .claude-plugin/plugin.json > /dev/null
+          fi
+          if [ -f "marketplace.json" ]; then
+            python -m json.tool marketplace.json > /dev/null
+          fi
+
+      - name: Run verification script
+        run: python scripts/verify_best_practices.py

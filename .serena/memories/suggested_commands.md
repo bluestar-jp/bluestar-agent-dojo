@@ -9,7 +9,7 @@
 
 ## Verification & Linting
 
-- **同期検証**: `python3 .github/scripts/verify_sync.py`
+- **構成検証**: `python3 scripts/verify_best_practices.py`
 - **プラグイン検証**: `sh scripts/validate-plugin.sh`
 - **Markdown Lint**: `sh scripts/lint_markdown.sh`
 - **バージョン更新**: `sh scripts/bump-version.sh <new_version>`

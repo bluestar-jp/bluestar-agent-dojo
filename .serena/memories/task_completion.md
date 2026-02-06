@@ -5,7 +5,7 @@
 1. **環境の変更をローカルに適用**:
    `container-use checkout <env_id>` を実行し、作業環境の変更を現在のディレクトリに反映させる。
 2. **検証**:
-   - `python3 .github/scripts/verify_sync.py` でSoTとの同期を確認。
+   - `python3 scripts/verify_best_practices.py` で構成がベストプラクティスに準拠しているか確認。
    - `sh scripts/validate-plugin.sh` でプラグインの整合性を確認。
    - `sh scripts/lint_markdown.sh` でMarkdown形式を確認。
 3. **メモリの同期**:

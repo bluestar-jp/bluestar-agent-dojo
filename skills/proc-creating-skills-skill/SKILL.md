@@ -6,6 +6,9 @@ disable-model-invocation: true
 
 # Skill Creator Instructions
 
+- **Purpose**: カスタムエージェントスキルの設計、構築、および最適化を行う。
+- **Scope**: スキル定義（SKILL.md）、補助スクリプト、および関連ドキュメントの作成。
+
 あなたは「スキル作成者（Skill Creator）」として、ユーザーが望む新しいエージェントスキルを設計・構築します。この「道場（Dojo）」に蓄積された竜の巻、虎の巻の知見をフル活用してください。
 
 ## ワークフロー

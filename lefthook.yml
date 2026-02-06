@@ -4,6 +4,33 @@
 pre-commit:
   parallel: true
   commands:
+    # 1. Markdown Lint
+    # Markdownファイルのフォーマットをチェックし、可能な場合は自動修正(--fix)を行う
     markdownlint:
       glob: "*.md"
-      run: npx markdownlint-cli2 {staged_files}
+      run: npx markdownlint-cli2 {staged_files} --fix
+
+    # 2. ベストプラクティス検証 (Verify Best Practices)
+    # agents/ および skills/ がプロジェクトの構成基準(CLAUDE_CODE_BEST_PRACTICES)を満たしているか検証
+    verify-standards:
+      glob: "{agents/*.md,skills/**/SKILL.md,scripts/*.py}"
+      run: python3 scripts/verify_best_practices.py
+
+    # 3. プラグイン構造検証 (Validate Plugin)
+    # plugin.json の構文チェックや必須ファイルの存在確認
+    validate-plugin:
+      glob: "{.claude-plugin/*.json,marketplace.json,skills/**,agents/**}"
+      run: sh scripts/validate-plugin.sh
+
+commit-msg:
+  commands:
+    # 4. コミットメッセージ規約チェック (Conventional Commits)
+    # "feat: ...", "fix: ..." の形式を強制し、履歴の一貫性を保つ
+    check-conventional-commits:
+      run: |
+        if ! grep -qE "^(feat|fix|docs|style|refactor|perf|test|chore|ci|revert)(\(.+\))?: .+" {1}; then
+          echo "❌ Error: Commit message must follow Conventional Commits format."
+          echo "   Example: 'feat: add new skill' or 'fix: update verification script'"
+          echo "   Allowed types: feat, fix, docs, style, refactor, perf, test, chore, ci, revert"
+          exit 1
+        fi

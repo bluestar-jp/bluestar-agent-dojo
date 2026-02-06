@@ -10,20 +10,22 @@ MD_FILES=()
 
 # Claude CodeのCLAUDE_FILE_PATHSを解析
 if [ -n "$CLAUDE_FILE_PATHS" ]; then
-  while IFS= read -r file; do
+  FILES=$(echo "$CLAUDE_FILE_PATHS" | jq -r '.[]' 2>/dev/null)
+  for file in $FILES; do
     if [[ "$file" == *.md ]]; then
       MD_FILES+=("$file")
     fi
-  done < <(echo "$CLAUDE_FILE_PATHS" | jq -r '.[]' 2>/dev/null)
+  done
 fi
 
 # Gemini CLIのファイルパスを解析
 if [ -n "$GEMINI_CHANGED_FILES" ]; then
-  while IFS= read -r file; do
+  FILES=$(echo "$GEMINI_CHANGED_FILES" | tr ',' '\n')
+  for file in $FILES; do
     if [[ "$file" == *.md ]]; then
       MD_FILES+=("$file")
     fi
-  done < <(echo "$GEMINI_CHANGED_FILES" | tr ',' '\n')
+  done
 fi
 
 # Markdownファイルがなければ終了
