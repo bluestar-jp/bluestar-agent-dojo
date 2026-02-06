@@ -1,5 +1,5 @@
 ---
-name: creating-skills
+name: proc-creating-skills-skill
 description: カスタムエージェントスキルの設計、構築、最適化を専門に行う。ベストプラクティスに基づいた高精度なスキルを定義するワークフロー。
 disable-model-invocation: true
 ---

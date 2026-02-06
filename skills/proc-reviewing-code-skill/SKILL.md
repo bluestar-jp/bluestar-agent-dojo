@@ -1,5 +1,5 @@
 ---
-name: reviewing-code
+name: proc-reviewing-code-skill
 description: Git差分を4観点（フロントエンド、バックエンド、インフラ、セキュリティ）で並列レビューし、JSON形式で報告するワークフロー。
 disable-model-invocation: true
 ---

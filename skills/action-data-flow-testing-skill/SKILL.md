@@ -1,5 +1,5 @@
 ---
-name: data-flow-testing
+name: action-data-flow-testing-skill
 description: データフローテストを適用し、変数の定義-使用チェーンを分析して、データに関連する欠陥を検出するテストケースを導出する。ソースコードが提供されており、変数の定義-使用チェーンが複雑な場合に使用する。
 ---
 

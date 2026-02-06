@@ -1,5 +1,5 @@
 ---
-name: menkyokaiden-claude
+name: proc-menkyokaiden-claude-skill
 description: Claude Codeプラグインとしての設定を検証し、公開準備を行うワークフロー。plugin.json、フロントマター、ディレクトリ構造の整合性をチェックする。
 disable-model-invocation: true
 ---
@@ -100,7 +100,7 @@ echo '{"name": "bluestar-dojo", "version": "1.0.0"}' > .claude-plugin/plugin.jso
 
 ```yaml
 ---
-name: resource-name
+name: proc-menkyokaiden-claude-skill
 description: リソースの説明。
 ---
 ```

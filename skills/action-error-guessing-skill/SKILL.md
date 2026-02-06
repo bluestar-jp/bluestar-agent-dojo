@@ -1,5 +1,5 @@
 ---
-name: error-guessing
+name: action-error-guessing-skill
 description: エラー推測法を適用し、一般的な障害パターンとドメイン知識に基づいてエラーが発生しやすい条件のテストケースを導出する。経験ベーステストとして既知障害パターンを体系的に適用する場合に使用する。
 ---
 

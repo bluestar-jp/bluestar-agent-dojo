@@ -1,5 +1,5 @@
 ---
-name: structured-dev
+name: proc-structured-dev-skill
 description: 「計画・実装・検証・レビュー」の厳格なサイクルを適用し、TDDとチーム開発フローを組み合わせた高品質な開発ワークフローを強制する。機能追加、バグ修正、リファクタリングなど、コード変更を伴うタスクの実行時に使用する。
 disable-model-invocation: true
 ---

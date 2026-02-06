@@ -1,5 +1,5 @@
 ---
-name: clarifying-requirements
+name: proc-clarifying-requirements-skill
 description: システム要件のテスト可能性を分析し、曖昧な点を特定してユーザーとの対話で要件を明確化するワークフロー。テスト設計の前段階で要件の明確化が必要な場合に使用する。
 disable-model-invocation: true
 ---

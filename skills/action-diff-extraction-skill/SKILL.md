@@ -1,5 +1,5 @@
 ---
-name: diff-extraction
+name: action-diff-extraction-skill
 description: Git差分を取得・分析し、変更ファイルの種類と統計情報を出力する。コードレビュー前の差分取得時に使用する。
 ---
 

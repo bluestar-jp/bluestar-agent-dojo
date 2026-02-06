@@ -1,5 +1,5 @@
 ---
-name: menkyokaiden-gemini
+name: proc-menkyokaiden-gemini-skill
 description: Gemini Extensionsとしての設定を検証し、公開準備を行うワークフロー。フロントマター、context.md、ディレクトリ構造の整合性をチェックする。
 disable-model-invocation: true
 ---

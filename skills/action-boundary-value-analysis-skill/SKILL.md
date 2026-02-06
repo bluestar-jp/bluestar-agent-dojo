@@ -1,5 +1,5 @@
 ---
-name: boundary-value-analysis
+name: action-boundary-value-analysis-skill
 description: 境界値分析を適用し、同値クラスの境界上および境界近傍の値でテストケースを導出する。数値的な境界（最小値、最大値）が存在する入力パラメータがある場合に使用する。
 ---
 

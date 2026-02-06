@@ -1,5 +1,5 @@
 ---
-name: branch-coverage-testing
+name: action-branch-coverage-testing-skill
 description: 分岐網羅テストを適用し、コード内のすべての分岐（true/false）を最低1回実行するテストケースを導出する。ソースコードが提供されている場合にホワイトボックステストの基本技法として使用する。
 ---
 

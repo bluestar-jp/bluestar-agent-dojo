@@ -1,5 +1,5 @@
 ---
-name: usecase-testing
+name: action-usecase-testing-skill
 description: ユースケーステストを適用し、アクターとシステムの対話シナリオからテストケースを導出する。ユーザーワークフローやビジネスプロセスのシナリオが記述されている場合に使用する。
 ---
 

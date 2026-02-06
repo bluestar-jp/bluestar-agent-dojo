@@ -1,5 +1,5 @@
 ---
-name: decision-table-testing
+name: action-decision-table-testing-skill
 description: ディシジョンテーブルテストを適用し、複数条件の組合せとその結果アクションを体系的にテストケースとして導出する。2つ以上の条件の組合せによって異なるアクションが実行される場合に使用する。
 ---
 

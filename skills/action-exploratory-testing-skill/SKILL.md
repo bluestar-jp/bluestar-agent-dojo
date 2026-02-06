@@ -1,5 +1,5 @@
 ---
-name: exploratory-testing
+name: action-exploratory-testing-skill
 description: 探索的テストを適用し、テストチャーターに基づくセッション形式でシステムの潜在的欠陥を発見するテストケースを導出する。要件が不明確な領域がある、またはリスクが高い領域の探索が必要な場合に使用する。
 ---
 

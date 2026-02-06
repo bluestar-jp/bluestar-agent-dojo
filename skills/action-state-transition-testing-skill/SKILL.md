@@ -1,5 +1,5 @@
 ---
-name: state-transition-testing
+name: action-state-transition-testing-skill
 description: 状態遷移テストを適用し、システムの状態とイベントに基づく遷移パスからテストケースを導出する。システムに明確な状態遷移（ステータス変更、ライフサイクル管理等）が存在する場合に使用する。
 ---
 

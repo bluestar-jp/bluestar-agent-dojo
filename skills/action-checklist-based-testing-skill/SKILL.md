@@ -1,5 +1,5 @@
 ---
-name: checklist-based-testing
+name: action-checklist-based-testing-skill
 description: チェックリストベーステストを適用し、ドメイン標準や組織の品質基準に基づく体系的なチェック項目からテストケースを導出する。経験ベーステストとしてドメイン標準チェックを体系的に適用する場合に使用する。
 ---
 

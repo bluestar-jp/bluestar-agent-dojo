@@ -1,5 +1,5 @@
 ---
-name: backend-review
+name: action-backend-review-skill
 description: バックエンド観点（API設計、DB最適化、エラーハンドリング）でコード差分をレビューし、JSON形式で結果を出力する。バックエンドコード（API、DB、サーバーサイド）のレビュー時に使用する。
 ---
 

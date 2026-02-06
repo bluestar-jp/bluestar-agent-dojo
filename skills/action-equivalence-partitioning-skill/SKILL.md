@@ -1,5 +1,5 @@
 ---
-name: equivalence-partitioning
+name: action-equivalence-partitioning-skill
 description: 同値分割法を適用し、入力ドメインを有効・無効の同値クラスに分割してテストケースを導出する。入力ドメインが定義されており、値の範囲やカテゴリが識別可能な場合に使用する。
 ---
 

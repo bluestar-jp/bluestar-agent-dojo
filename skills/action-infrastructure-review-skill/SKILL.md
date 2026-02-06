@@ -1,5 +1,5 @@
 ---
-name: infrastructure-review
+name: action-infrastructure-review-skill
 description: インフラ観点（設定管理、リソース管理、シークレット管理）でコード差分をレビューし、JSON形式で結果を出力する。インフラコード（Docker、K8s、Terraform、CI/CD）のレビュー時に使用する。
 ---
 
