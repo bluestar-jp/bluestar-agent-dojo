@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>action-gen-mermaid-skill viewer</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #16213e;
+    border-bottom: 1px solid #0f3460;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  header .title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #e94560;
+  }
+  .controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  #updated {
+    color: #888;
+    font-size: 11px;
+    margin-right: 8px;
+  }
+  button {
+    background: #0f3460;
+    color: #e0e0e0;
+    border: 1px solid #1a1a4e;
+    border-radius: 6px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.15s;
+  }
+  button:hover { background: #1a1a6e; }
+  #viewer {
+    flex: 1;
+    overflow: auto;
+    padding: 24px;
+  }
+  #viewer.light { background: #f5f5f5; }
+
+  #svg-wrapper {
+    transform-origin: 0 0;
+    display: inline-block;
+  }
+  #svg-wrapper svg {
+    display: block;
+    filter: drop-shadow(0 2px 12px rgba(0,0,0,0.3));
+  }
+  #viewer.light #svg-wrapper svg {
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+  }
+  .zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  #zoomLevel {
+    font-size: 11px;
+    color: #888;
+    min-width: 36px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <span class="title">action-gen-mermaid-skill viewer</span>
+    <div class="controls">
+      <span id="updated"></span>
+      <div class="zoom-controls">
+        <button onclick="doZoom(-0.2)">−</button>
+        <span id="zoomLevel">100%</span>
+        <button onclick="doZoom(0.2)">+</button>
+        <button onclick="resetZoom()">Fit</button>
+      </div>
+      <button id="bgToggle" onclick="toggleBg()">☀️ Light</button>
+    </div>
+  </header>
+  <div id="viewer">
+    <div id="svg-wrapper">
+      <!--SVG_PLACEHOLDER-->
+    </div>
+  </div>
+
+<script>
+  let scale = 1;
+  const wrapper = document.getElementById('svg-wrapper');
+  const svg = wrapper.querySelector('svg');
+  let baseW = 0, baseH = 0;
+
+  function init() {
+    if (!svg) return;
+    // Get the natural size from viewBox or attributes
+    const vb = svg.getAttribute('viewBox');
+    if (vb) {
+      const parts = vb.split(/[\s,]+/).map(Number);
+      baseW = parts[2];
+      baseH = parts[3];
+    } else {
+      baseW = svg.getBoundingClientRect().width;
+      baseH = svg.getBoundingClientRect().height;
+    }
+    // Set SVG to its natural size (no max-width constraint)
+    svg.removeAttribute('width');
+    svg.removeAttribute('height');
+    svg.setAttribute('width', baseW);
+    svg.setAttribute('height', baseH);
+    // Fit to viewer width initially
+    resetZoom();
+    document.getElementById('updated').textContent =
+      'Rendered: ' + new Date().toLocaleTimeString();
+  }
+
+  function doZoom(delta) {
+    scale = Math.max(0.1, Math.min(5, scale + delta));
+    applyZoom();
+  }
+
+  function resetZoom() {
+    const viewer = document.getElementById('viewer');
+    const available = viewer.clientWidth - 48; // padding
+    scale = Math.min(1, available / baseW);
+    applyZoom();
+  }
+
+  function applyZoom() {
+    wrapper.style.transform = 'scale(' + scale + ')';
+    // Set wrapper dimensions so the scroll container sees the scaled size
+    wrapper.style.width = (baseW * scale) + 'px';
+    wrapper.style.height = (baseH * scale) + 'px';
+    document.getElementById('zoomLevel').textContent = Math.round(scale * 100) + '%';
+  }
+
+  function toggleBg() {
+    const v = document.getElementById('viewer');
+    const btn = document.getElementById('bgToggle');
+    v.classList.toggle('light');
+    btn.textContent = v.classList.contains('light') ? '🌙 Dark' : '☀️ Light';
+  }
+
+  init();
+</script>
+</body>
+</html>
