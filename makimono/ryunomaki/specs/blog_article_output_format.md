@@ -9,7 +9,7 @@
 
 ```text
 articles/
-  <slug>.md          # 記事本体（Zenn形式）
+  <yyyy-mm-dd>-<slug>.md          # 記事本体（Zenn形式）
 ```
 
 ### Zenn Frontmatter仕様
@@ -72,7 +72,7 @@ publication_name: "" # Publicationに投稿する場合のみ指定
 
 **構成パターン**:
 
-```markdown
+`````markdown
 ---
 title: "<技術名>で<課題>を解決する方法"
 emoji: "🔧"
@@ -99,7 +99,7 @@ published: false
 
 ```<言語>
 <コード例>
-```text
+```
 
 <説明>
 
@@ -129,7 +129,7 @@ published: false
 
 - <関連ドキュメント>
 
-```
+`````
 
 **適用例**: 「Next.jsでOGP画像を動的生成する方法」「DockerでPostgreSQL環境を構築する手順」
 

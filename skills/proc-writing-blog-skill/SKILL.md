@@ -1,6 +1,6 @@
 ---
 name: proc-writing-blog-skill
-description: 技術ブログ記事執筆のPAVEワークフロー全体（Plan→Agree→Execute→Verify）を実行する。並列レビュー（構造・読みやすさ + AIっぽさ除去）の統合を含む。
+description: 技術ブログ記事執筆のPAVEワークフロー全体（Plan→Agree→Execute→Verify→Generate & Publish）を実行する。並列レビュー（構造・読みやすさ + AIっぽさ除去）の統合を含む。
 disable-model-invocation: false
 ---
 

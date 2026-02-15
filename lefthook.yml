@@ -8,7 +8,7 @@ pre-commit:
     # Markdownファイルのフォーマットをチェックし、可能な場合は自動修正(--fix)を行う
     markdownlint:
       glob: "*.md"
-      run: npx markdownlint-cli2 {staged_files} --fix
+      run: npx markdownlint-cli2 {staged_files} --fix && git add {staged_files}
 
     # 2. ベストプラクティス検証 (Verify Best Practices)
     # agents/ および skills/ がプロジェクトの構成基準(CLAUDE_CODE_BEST_PRACTICES)を満たしているか検証
@@ -32,7 +32,7 @@ pre-commit:
     # 高速なPythonリンター
     ruff:
       glob: "**/*.py"
-      run: ruff check --fix {staged_files}
+      run: ruff check --fix {staged_files} && git add {staged_files}
 
     # 6. YAML Lint (yamllint)
     # YAMLファイルの構文チェック

@@ -29,22 +29,29 @@ def validate_frontmatter(content, file_path, required_fields=None):
 
     frontmatter_text = frontmatter_match.group(1)
 
-    # Simple regex-based YAML parser for key-value pairs
+    # Simple regex-based YAML parser for key-value pairs and lists
     data = {}
+    current_key = None
     for line in frontmatter_text.splitlines():
-        line = line.strip()
-        if not line or line.startswith('#'):
+        trimmed_line = line.strip()
+        if not trimmed_line or trimmed_line.startswith('#'):
             continue
+        
+        # Handle list items (starting with -)
+        if trimmed_line.startswith('-'):
+            continue # Just skip list items for required field checks
+
         if ':' in line:
             key, value = line.split(':', 1)
-            data[key.strip()] = value.strip()
+            current_key = key.strip()
+            data[current_key] = value.strip()
 
     if not data:
         return False, "フロントマターが空、または解析可能なキーが見つかりません。"
 
-    missing = [field for field in required_fields if field not in data]
+    missing = [field for field in required_fields if field not in data or not data[field]]
     if missing:
-        return False, f"必須フィールドが不足しています: {', '.join(missing)}"
+        return False, f"必須フィールドが不足しています、または空です: {', '.join(missing)}"
 
     return True, data
 

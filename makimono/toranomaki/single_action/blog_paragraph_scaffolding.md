@@ -113,15 +113,16 @@ React.memoを使うとレンダリング回数が半分になる。
 
 **例**:
 
-```text
+````text
 React.memoを使うとレンダリング回数が半分になる。
 
-\`\`\`typescript
+```typescript
 const MemoizedComponent = React.memo(ExpensiveComponent);
-\`\`\`
+```
 
 この例では、propsが変更されない限りExpensiveComponentは再レンダリングされない。
-```
+
+````
 
 #### パターンC: 具体例で解説
 
@@ -292,16 +293,17 @@ Reactアプリケーションが遅い。ページの読み込みに3秒かか�
 
 **例**:
 
-```text
+````text
 まず、React.memoでコンポーネントをラップする。
 
-\`\`\`typescript
+```typescript
 const MemoizedComponent = React.memo(ExpensiveComponent);
-\`\`\`
+```
 
 この例では、propsが変更されない限りExpensiveComponentは再レンダリングされない。
 注意点として、オブジェクトや配列のpropsは参照が変わると再レンダリングされる。
-```
+
+````
 
 ---
 

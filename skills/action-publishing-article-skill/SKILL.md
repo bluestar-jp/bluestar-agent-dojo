@@ -117,7 +117,7 @@ git push origin <branch>
 ### Step 5: Zenn連携確認
 
 1. GitHubリポジトリのコミット履歴を確認
-2. Zennダッシュボードで記事が表示されるか確認（<https://zenn.dev/dashboard）>
+2. Zennダッシュボードで記事が表示されるか確認 (<https://zenn.dev/dashboard>)
 3. 下書き状態で正しく反映されているか確認
 
 **確認ポイント**:
@@ -187,7 +187,7 @@ git push origin <branch>
 
 **対応**:
 
-1. Zenn連携設定を確認（<https://zenn.dev/dashboard/deploys）>
+1. Zenn連携設定を確認 (<https://zenn.dev/dashboard/deploys>)
 2. リポジトリとブランチが正しいか確認
 3. 数分待ってから再確認（Zennの反映には時間がかかる場合あり）
 4. それでも反映されない場合、Zennのドキュメントを参照しユーザーに確認依頼

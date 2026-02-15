@@ -1,6 +1,6 @@
 # ブログ執筆ワークフロー手順
 
-- Purpose: 技術ブログ記事執筆の全体ワークフロー（PAVE: Plan → Agree → Execute → Verify）
+- Purpose: 技術ブログ記事執筆の全体ワークフロー（PAVE: Plan → Agree → Execute → Verify → Generate & Publish）
 - Scope: テーマ分析からレビュー、公開までの全フェーズ
 
 ## ワークフロー概要

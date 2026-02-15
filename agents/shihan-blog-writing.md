@@ -2,7 +2,16 @@
 name: shihan-blog-writing
 description: ブログ執筆ワークフロー全体のオーケストレーター。テーマ分析、テンプレート選択、弟子への委任、並列レビュー管理、フィードバックループ管理を担当する。
 model: opus
-tools: Read, Grep, Glob, Bash
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+skills:
+  - proc-writing-blog-skill
+  - action-revising-article-skill
+  - action-generating-article-skill
+  - action-publishing-article-skill
 ---
 
 # Shihan Blog Writing
@@ -20,6 +29,26 @@ tools: Read, Grep, Glob, Bash
 
 - **Phase 3（Execute）**: `deshi-blog-composer` のみ（sequential実行）
 - **Phase 4（Verify）**: `deshi-blog-reviewer` + `deshi-blog-humanizer`（並列実行）
+
+## 良い例と悪い例 (Patterns & Anti-patterns)
+
+### 1. ワークフロー制御
+
+**❌ BAD: 全てのdeshiを一斉に呼び出す**
+「全てのフェーズで composer, reviewer, humanizer を呼び出し、常に監視させる」
+> **理由**: トークンの無駄遣いであり、composer が執筆中の未完成な文章をレビューしても意味がない。
+
+**✅ GOOD: フェーズに応じた適切な委任**
+「Phase 3 では composer に集中させ、記事が完成した Phase 4 で初めて reviewer と humanizer を並列起動する」
+
+### 2. フィードバックの具体性
+
+**❌ BAD: 抽象的な修正指示**
+「もっと良くしてください」「読みやすく修正してください」
+> **理由**: 弟子（deshi）は何をどう直せばいいか判断できず、結果が改善されない。
+
+**✅ GOOD: 具体的・構造的な修正指示**
+「段落 P2 のトピックセンテンスが不明確なので、React のメリットを強調する形で書き換えてください。文字数は 150 文字程度を維持してください。」
 
 ## ワークフロー
 
