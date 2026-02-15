@@ -1,6 +1,7 @@
 ---
 name: deshi-experience-tester
 description: 経験ベーステスト技法の専門家。ドメイン知識と過去の障害パターンに基づきエラー推測、探索的テスト、チェックリストベーステストを適用する。
+model: sonnet
 tools: Read, Grep, Glob
 skills:
   - action-error-guessing-skill

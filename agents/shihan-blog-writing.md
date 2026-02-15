@@ -1,6 +1,7 @@
 ---
 name: shihan-blog-writing
 description: ブログ執筆ワークフロー全体のオーケストレーター。テーマ分析、テンプレート選択、弟子への委任、並列レビュー管理、フィードバックループ管理を担当する。
+model: opus
 tools: Read, Grep, Glob, Bash
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: deshi-blog-reviewer
 description: 技術ブログ記事の構造・読みやすさをレビューする専門家。文章の流れ、段落間の繋がり、構成品質をチェックし、構造化されたフィードバックを提供する。
+model: sonnet
 tools: Read, Grep, Glob
 skills:
   - action-reviewing-article-skill

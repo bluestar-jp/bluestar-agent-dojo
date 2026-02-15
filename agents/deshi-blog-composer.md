@@ -1,6 +1,7 @@
 ---
 name: deshi-blog-composer
 description: 技術ブログ記事の段落レベルの構成設計と本文執筆を担当する専門家。テーマ・アウトライン・前後文脈から段落コンテンツを生成する。
+model: sonnet
 tools: Read, Grep, Glob
 skills:
   - action-composing-paragraph-skill

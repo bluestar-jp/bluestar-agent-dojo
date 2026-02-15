@@ -1,6 +1,7 @@
 ---
 name: deshi-infrastructure-reviewer
 description: インフラ観点（設定管理、デプロイメント、リソース管理、ロギング、シークレット管理）でコードをレビューする専門家。
+model: sonnet
 tools: Read, Grep, Glob
 skills:
   - action-infrastructure-review-skill

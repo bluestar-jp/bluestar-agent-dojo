@@ -1,6 +1,7 @@
 ---
 name: shihan-sequential
 description: ステップバイステップの複雑なワークフローを管理し、状態を維持しながらタスクを完遂させるオーケストレーター。
+model: sonnet
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 

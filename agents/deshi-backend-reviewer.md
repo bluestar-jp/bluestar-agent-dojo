@@ -1,6 +1,7 @@
 ---
 name: deshi-backend-reviewer
 description: バックエンド観点（API設計、DB最適化、エラーハンドリング、ビジネスロジック、スケーラビリティ）でコードをレビューする専門家。
+model: sonnet
 tools: Read, Grep, Glob
 skills:
   - action-backend-review-skill

@@ -1,6 +1,7 @@
 ---
 name: deshi-whitebox-tester
 description: ホワイトボックステスト技法の専門家。ソースコードの構造分析に基づき制御フロー、データフロー、分岐網羅テストを適用する。
+model: sonnet
 tools: Read, Grep, Glob, Bash
 skills:
   - action-control-flow-testing-skill

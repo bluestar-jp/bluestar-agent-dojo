@@ -1,6 +1,7 @@
 ---
 name: deshi-blog-humanizer
 description: AIっぽさ除去の専門レビュアー。テンプレ感・説明書感・記号過多・過剰な丁寧さを検出し、人間が書いたような自然な日本語への書き換えを提案する。
+model: sonnet
 tools: Read, Grep, Glob
 skills:
   - action-humanizing-article-skill
