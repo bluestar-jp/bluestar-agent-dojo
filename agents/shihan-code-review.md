@@ -1,6 +1,7 @@
 ---
 name: shihan-code-review
 description: コードレビューのオーケストレーター。差分を分析し、変更内容に応じて必要な専門deshiのみを選択し、実行計画を策定する。
+model: opus
 tools: Read, Grep, Glob, Bash
 ---
 

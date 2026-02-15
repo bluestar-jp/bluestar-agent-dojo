@@ -1,6 +1,7 @@
 ---
 name: shihan-parallel
 description: 複数の専門エージェントを並列に起動・制御し、その実行結果を統合するオーケストレーター。
+model: sonnet
 tools: Read, Grep, Glob, Bash
 ---
 

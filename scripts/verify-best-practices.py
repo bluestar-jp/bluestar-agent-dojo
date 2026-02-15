@@ -19,31 +19,40 @@ def has_japanese(text):
     # Check if string contains Japanese characters
     return bool(re.search(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]', text))
 
-def validate_frontmatter(content, file_path):
+def validate_frontmatter(content, file_path, required_fields=None):
+    if required_fields is None:
+        required_fields = ['name', 'description']
+
     frontmatter_match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
     if not frontmatter_match:
         return False, "フロントマターが見つかりません。"
-    
+
     frontmatter_text = frontmatter_match.group(1)
-    
-    # Simple regex-based YAML parser for key-value pairs
+
+    # Simple regex-based YAML parser for key-value pairs and lists
     data = {}
+    current_key = None
     for line in frontmatter_text.splitlines():
-        line = line.strip()
-        if not line or line.startswith('#'):
+        trimmed_line = line.strip()
+        if not trimmed_line or trimmed_line.startswith('#'):
             continue
+        
+        # Handle list items (starting with -)
+        if trimmed_line.startswith('-'):
+            continue # Just skip list items for required field checks
+
         if ':' in line:
             key, value = line.split(':', 1)
-            data[key.strip()] = value.strip()
-    
+            current_key = key.strip()
+            data[current_key] = value.strip()
+
     if not data:
         return False, "フロントマターが空、または解析可能なキーが見つかりません。"
-    
-    required = ['name', 'description']
-    missing = [field for field in required if field not in data]
+
+    missing = [field for field in required_fields if field not in data or not data[field]]
     if missing:
-        return False, f"必須フィールドが不足しています: {', '.join(missing)}"
-    
+        return False, f"必須フィールドが不足しています、または空です: {', '.join(missing)}"
+
     return True, data
 
 def validate_common(content, errors):
@@ -87,11 +96,18 @@ def validate_agent(file_path):
         print(f"⚠️  {file_path} is a draft, skipping validation.")
         return []
 
-    # 2. Frontmatter
-    success, result = validate_frontmatter(content, file_path)
+    # 2. Frontmatter (agents require 'model' field)
+    success, result = validate_frontmatter(content, file_path, required_fields=['name', 'description', 'model'])
     if not success:
         errors.append(result)
-    
+    else:
+        # Validate model field value
+        data = result
+        valid_models = ['sonnet', 'opus', 'haiku']
+        model_value = data.get('model', '').strip()
+        if model_value not in valid_models:
+            errors.append(f"model フィールドの値が不正です: '{model_value}'。有効な値: {', '.join(valid_models)}")
+
     # 3. Common content checks
     validate_common(content, errors)
         
@@ -116,8 +132,8 @@ def validate_skill(dir_path):
         print(f"⚠️  {dir_path.name} is a draft, skipping validation.")
         return []
 
-    # 2. Frontmatter
-    success, result = validate_frontmatter(content, skill_md)
+    # 2. Frontmatter (skills only require 'name' and 'description')
+    success, result = validate_frontmatter(content, skill_md, required_fields=['name', 'description'])
     if not success:
         errors.append(result)
     

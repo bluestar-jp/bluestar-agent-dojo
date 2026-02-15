@@ -1,6 +1,7 @@
 ---
 name: shihan-routing
 description: ユーザーの要求を分析し、最適なエージェントやスキルへタスクを振り分けるルーター。
+model: sonnet
 tools: Read, Grep, Glob
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: deshi-frontend-reviewer
 description: フロントエンド観点（UI/UX、アクセシビリティ、パフォーマンス、状態管理、コンポーネント設計）でコードをレビューする専門家。
+model: sonnet
 tools: Read, Grep, Glob
 skills:
   - action-frontend-review-skill

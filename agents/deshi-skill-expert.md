@@ -1,6 +1,7 @@
 ---
 name: deshi-skill-expert
 description: カスタムエージェントスキル作成を専門とする弟子エージェント。ベストプラクティスに基づいた設計と実装を行う。
+model: sonnet
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 

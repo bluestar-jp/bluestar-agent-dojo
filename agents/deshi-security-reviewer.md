@@ -1,6 +1,7 @@
 ---
 name: deshi-security-reviewer
 description: セキュリティ観点（認証/認可、入力検証、OWASP対策、機密情報管理、依存関係の脆弱性）でコードをレビューする専門家。
+model: sonnet
 tools: Read, Grep, Glob, Bash
 skills:
   - action-security-review-skill
