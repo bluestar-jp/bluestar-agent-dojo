@@ -7,8 +7,6 @@
 #   - Skills have SKILL.md
 #   - Version consistency
 
-set -e
-
 ERRORS=0
 WARNINGS=0
 
@@ -20,12 +18,12 @@ NC='\033[0m' # No Color
 
 error() {
     echo -e "${RED}ERROR:${NC} $1"
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
 }
 
 warn() {
     echo -e "${YELLOW}WARN:${NC} $1"
-    ((WARNINGS++))
+    WARNINGS=$((WARNINGS + 1))
 }
 
 ok() {
