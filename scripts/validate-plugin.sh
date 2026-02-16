@@ -36,16 +36,11 @@ echo ""
 # Check required files
 echo "=== Required Files ==="
 
-echo "Debug: Listing .claude-plugin directory with quotes:"
-find .claude-plugin -maxdepth 1 -not -path '*/.*' -exec printf "'%s'\n" {} +
-
 for file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json" "CLAUDE.md" "LICENSE"; do
     if [ -f "$file" ]; then
         ok "$file exists"
     else
         error "$file not found"
-        echo "Debug: Contents of $(dirname "$file"):"
-        ls -la "$(dirname "$file")" 2>/dev/null || echo "Directory not found"
     fi
 done
 
