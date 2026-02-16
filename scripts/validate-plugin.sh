@@ -43,6 +43,8 @@ for file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json" "CLAU
         ok "$file exists"
     else
         error "$file not found"
+        echo "Debug: Contents of $(dirname "$file"):"
+        ls -la "$(dirname "$file")" 2>/dev/null || echo "Directory not found"
     fi
 done
 
