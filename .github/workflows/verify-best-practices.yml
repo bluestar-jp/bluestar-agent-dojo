@@ -40,6 +40,9 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install dependencies
+        run: pip install PyYAML
+
       - name: Verify JSON manifests
         # プラグイン設定ファイル (JSON) の基本的な構文チェック
         run: |

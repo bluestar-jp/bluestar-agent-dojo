@@ -3,6 +3,12 @@ import re
 import sys
 from pathlib import Path
 
+try:
+    import yaml
+except ImportError:
+    print("Error: PyYAML is required. Please install it with 'pip install PyYAML'.")
+    sys.exit(1)
+
 def is_draft(content):
     # Check for draft status in frontmatter or body
     frontmatter_match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
@@ -29,25 +35,13 @@ def validate_frontmatter(content, file_path, required_fields=None):
 
     frontmatter_text = frontmatter_match.group(1)
 
-    # Simple regex-based YAML parser for key-value pairs and lists
-    data = {}
-    current_key = None
-    for line in frontmatter_text.splitlines():
-        trimmed_line = line.strip()
-        if not trimmed_line or trimmed_line.startswith('#'):
-            continue
-        
-        # Handle list items (starting with -)
-        if trimmed_line.startswith('-'):
-            continue # Just skip list items for required field checks
+    try:
+        data = yaml.safe_load(frontmatter_text)
+    except yaml.YAMLError as e:
+        return False, f"YAMLパースエラー: {e}"
 
-        if ':' in line:
-            key, value = line.split(':', 1)
-            current_key = key.strip()
-            data[current_key] = value.strip()
-
-    if not data:
-        return False, "フロントマターが空、または解析可能なキーが見つかりません。"
+    if not isinstance(data, dict):
+        return False, "フロントマターが有効な辞書形式ではありません。"
 
     missing = [field for field in required_fields if field not in data or not data[field]]
     if missing:

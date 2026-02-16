@@ -1,0 +1,177 @@
+{
+  "name": "bluestar-agent-dojo",
+  "owner": {
+    "name": "bluestar-jp"
+  },
+  "metadata": {
+    "description": "AIエージェントのスキルやプロシージャを集約した、実戦的なエージェント開発のためのマーケットプレイス。",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "action-backend-review-skill",
+      "source": "./skills/action-backend-review-skill",
+      "description": "バックエンド観点（API設計、DB最適化、エラーハンドリング）でコード差分をレビューし、JSON形式で結果を出力する。"
+    },
+    {
+      "name": "action-boundary-value-analysis-skill",
+      "source": "./skills/action-boundary-value-analysis-skill",
+      "description": "境界値分析を適用し、同値クラスの境界上および境界近傍の値でテストケースを導出する。"
+    },
+    {
+      "name": "action-branch-coverage-testing-skill",
+      "source": "./skills/action-branch-coverage-testing-skill",
+      "description": "分岐網羅テストを適用し、コード内のすべての分岐（true/false）を最低1回実行するテストケースを導出する。"
+    },
+    {
+      "name": "action-checklist-based-testing-skill",
+      "source": "./skills/action-checklist-based-testing-skill",
+      "description": "チェックリストベーステストを適用し、ドメイン標準や組織の品質基準に基づく体系的なチェック項目からテストケースを導出する。"
+    },
+    {
+      "name": "action-composing-paragraph-skill",
+      "source": "./skills/action-composing-paragraph-skill",
+      "description": "ブログ記事の単一段落を執筆する。テーマ、アウトライン、前後の文脈から段落コンテンツを生成する。"
+    },
+    {
+      "name": "action-control-flow-testing-skill",
+      "source": "./skills/action-control-flow-testing-skill",
+      "description": "制御フローテストを適用し、プログラムの制御構造（分岐、ループ、例外処理）を分析してテストケースを導出する。"
+    },
+    {
+      "name": "action-data-flow-testing-skill",
+      "source": "./skills/action-data-flow-testing-skill",
+      "description": "データフローテストを適用し、変数の定義-使用チェーンを分析して、データに関連する欠陥を検出する。"
+    },
+    {
+      "name": "action-decision-table-testing-skill",
+      "source": "./skills/action-decision-table-testing-skill",
+      "description": "ディシジョンテーブルテストを適用し、複数条件の組合せとその結果アクションを体系的にテストケースとして導出する。"
+    },
+    {
+      "name": "action-diff-extraction-skill",
+      "source": "./skills/action-diff-extraction-skill",
+      "description": "Git差分を取得・分析し、変更ファイルの種類と統計情報を出力する。"
+    },
+    {
+      "name": "action-equivalence-partitioning-skill",
+      "source": "./skills/action-equivalence-partitioning-skill",
+      "description": "同値分割法を適用し、入力ドメインを有効・無効の同値クラスに分割してテストケースを導出する。"
+    },
+    {
+      "name": "action-error-guessing-skill",
+      "source": "./skills/action-error-guessing-skill",
+      "description": "エラー推測法を適用し、一般的な障害パターンとドメイン知識に基づいてエラーが発生しやすい条件のテストケースを導出する。"
+    },
+    {
+      "name": "action-exploratory-testing-skill",
+      "source": "./skills/action-exploratory-testing-skill",
+      "description": "探索的テストを適用し、テストチャーターに基づくセッション形式でシステムの潜在的欠陥を発見するテストケースを導出する。"
+    },
+    {
+      "name": "action-frontend-review-skill",
+      "source": "./skills/action-frontend-review-skill",
+      "description": "フロントエンド観点（UI/UX、アクセシビリティ、パフォーマンス）でコード差分をレビューし、JSON形式で結果を出力する。"
+    },
+    {
+      "name": "action-gemini-searching-skill",
+      "source": "./skills/action-gemini-searching-skill",
+      "description": "Gemini CLIを使用してWeb検索を実行し、最新情報を取得する。"
+    },
+    {
+      "name": "action-gen-mermaid-skill",
+      "source": "./skills/action-gen-mermaid-skill",
+      "description": "会話の内容を構造化してMermaid図として可視化し、論理構造を磨くための思考ツール。"
+    },
+    {
+      "name": "action-generating-article-skill",
+      "source": "./skills/action-generating-article-skill",
+      "description": "承認済みのブログ記事コンテンツからZenn対応のMarkdownファイルを生成する。"
+    },
+    {
+      "name": "action-humanizing-article-skill",
+      "source": "./skills/action-humanizing-article-skill",
+      "description": "ブログ記事ドラフトからAI生成文章特有のパターンを検出し、人間が書いたような自然な日本語に書き換える。"
+    },
+    {
+      "name": "action-infrastructure-review-skill",
+      "source": "./skills/action-infrastructure-review-skill",
+      "description": "インフラ観点（設定管理、リソース管理、シークレット管理）でコード差分をレビューし、JSON形式で結果を出力する。"
+    },
+    {
+      "name": "action-pairwise-testing-skill",
+      "source": "./skills/action-pairwise-testing-skill",
+      "description": "ペアワイズテストを適用し、パラメータ間の2因子間相互作用を効率的にカバーするテストケースを導出する。"
+    },
+    {
+      "name": "action-publishing-article-skill",
+      "source": "./skills/action-publishing-article-skill",
+      "description": "生成されたブログ記事MarkdownファイルをGitHubリポジトリにコミット・プッシュする。"
+    },
+    {
+      "name": "action-reviewing-article-skill",
+      "source": "./skills/action-reviewing-article-skill",
+      "description": "ブログ記事ドラフトの構造・読みやすさをレビューし、JSON形式で結果を出力する。"
+    },
+    {
+      "name": "action-revising-article-skill",
+      "source": "./skills/action-revising-article-skill",
+      "description": "ブログ記事レビュー後のフィードバックを処理し、適切なアクションを決定する。"
+    },
+    {
+      "name": "action-security-review-skill",
+      "source": "./skills/action-security-review-skill",
+      "description": "セキュリティ観点（認証/認可、入力検証、OWASP対策）でコード差分をレビューし、JSON形式で結果を出力する。"
+    },
+    {
+      "name": "action-state-transition-testing-skill",
+      "source": "./skills/action-state-transition-testing-skill",
+      "description": "状態遷移テストを適用し、システムの状態とイベントに基づく遷移パスからテストケースを導出する。"
+    },
+    {
+      "name": "action-tech-lead-review-skill",
+      "source": "./skills/action-tech-lead-review-skill",
+      "description": "テックリード観点でコードをレビューし、アーキテクチャの妥当性、可読性、品質を評価する。"
+    },
+    {
+      "name": "action-usecase-testing-skill",
+      "source": "./skills/action-usecase-testing-skill",
+      "description": "ユースケーステストを適用し、アクターとシステムの対話シナリオからテストケースを導出する。"
+    },
+    {
+      "name": "proc-clarifying-requirements-skill",
+      "source": "./skills/proc-clarifying-requirements-skill",
+      "description": "システム要件のテスト可能性を分析し、曖昧な点を特定してユーザーとの対話で要件を明確化するワークフロー。"
+    },
+    {
+      "name": "proc-creating-skills-skill",
+      "source": "./skills/proc-creating-skills-skill",
+      "description": "カスタムエージェントスキルの設計、構築、最適化を専門に行うワークフロー。"
+    },
+    {
+      "name": "proc-importing-skill",
+      "source": "./skills/proc-importing-skill",
+      "description": "外部からスキルの定義を取得し、道場の構造に適合させて統合するワークフロー。"
+    },
+    {
+      "name": "proc-menkyokaiden-claude-skill",
+      "source": "./skills/proc-menkyokaiden-claude-skill",
+      "description": "Claude Codeプラグインとしての設定を検証し、公開準備を行うワークフロー。"
+    },
+    {
+      "name": "proc-reviewing-code-skill",
+      "source": "./skills/proc-reviewing-code-skill",
+      "description": "Git差分を4観点（フロント、バック、インフラ、セキュリティ）で並列レビューするワークフロー。"
+    },
+    {
+      "name": "proc-structured-dev-skill",
+      "source": "./skills/proc-structured-dev-skill",
+      "description": "「計画・実装・検証・レビュー」の厳格なサイクルを適用する高品質開発ワークフロー。"
+    },
+    {
+      "name": "proc-writing-blog-skill",
+      "source": "./skills/proc-writing-blog-skill",
+      "description": "技術ブログ記事執筆のPAVEワークフロー全体（Plan→Agree→Execute→Verify→Generate & Publish）を実行する。"
+    }
+  ]
+}
