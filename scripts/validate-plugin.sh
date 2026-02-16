@@ -53,7 +53,11 @@ echo "=== Command Check ==="
 if command -v claude &> /dev/null; then
     ok "claude command found"
 else
-    error "claude command not found. Please install Claude Code CLI."
+    if [ "$GITHUB_ACTIONS" = "true" ]; then
+        warn "claude command not found in CI environment. Skipping official validation."
+    else
+        error "claude command not found. Please install Claude Code CLI."
+    fi
 fi
 
 # Validate JSON files
@@ -80,6 +84,8 @@ if [ -f "$MARKETPLACE_JSON" ]; then
             else
                 error "marketplace validation failed (claude plugin validate .)"
             fi
+        else
+            warn "Skipping marketplace validation because claude command is missing"
         fi
     else
         error "$MARKETPLACE_JSON is invalid JSON"
