@@ -74,11 +74,6 @@
       "description": "フロントエンド観点（UI/UX、アクセシビリティ、パフォーマンス）でコード差分をレビューし、JSON形式で結果を出力する。"
     },
     {
-      "name": "action-gemini-searching-skill",
-      "source": "./skills/action-gemini-searching-skill",
-      "description": "Gemini CLIを使用してWeb検索を実行し、最新情報を取得する。"
-    },
-    {
       "name": "action-gen-mermaid-skill",
       "source": "./skills/action-gen-mermaid-skill",
       "description": "会話の内容を構造化してMermaid図として可視化し、論理構造を磨くための思考ツール。"
@@ -87,11 +82,6 @@
       "name": "action-generating-article-skill",
       "source": "./skills/action-generating-article-skill",
       "description": "承認済みのブログ記事コンテンツからZenn対応のMarkdownファイルを生成する。"
-    },
-    {
-      "name": "action-git-delivery-skill",
-      "source": "./.gemini/skills/action-git-delivery-skill",
-      "description": "gitでセッション内で操作されたファイルをコミットし、リモートにプッシュする。"
     },
     {
       "name": "action-humanizing-article-skill",
