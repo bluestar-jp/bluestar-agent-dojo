@@ -38,6 +38,11 @@ echo ""
 # Check required files
 echo "=== Required Files ==="
 
+echo "Debug: Listing current directory structure:"
+find . -maxdepth 2 -not -path '*/.*' | head -n 20
+echo "Debug: Listing .claude-plugin directory:"
+ls -la .claude-plugin 2>/dev/null || echo ".claude-plugin directory not found"
+
 for file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json" "CLAUDE.md" "LICENSE"; do
     if [ -f "$file" ]; then
         ok "$file exists"

@@ -3,29 +3,7 @@ name: Quality Checks
 on:
   push:
     branches: [main]
-    paths:
-      - "**/*.sh"
-      - "**/*.py"
-      - "**/*.yml"
-      - "**/*.yaml"
-      - "Makefile"
-      - "scripts/**"
-      - ".claude-plugin/**"
-      - "CLAUDE.md"
-      - "LICENSE"
-      - ".yamllint"
   pull_request:
-    paths:
-      - "**/*.sh"
-      - "**/*.py"
-      - "**/*.yml"
-      - "**/*.yaml"
-      - "Makefile"
-      - "scripts/**"
-      - ".claude-plugin/**"
-      - "CLAUDE.md"
-      - "LICENSE"
-      - ".yamllint"
   workflow_dispatch:
 
 # 並列実行の制御: 同じPRに対する新しいプッシュがあった場合、実行中のジョブをキャンセル
