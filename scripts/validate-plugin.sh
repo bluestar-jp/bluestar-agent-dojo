@@ -38,13 +38,23 @@ echo ""
 # Check required files
 echo "=== Required Files ==="
 
-for file in ".claude-plugin/plugin.json" "CLAUDE.md" "LICENSE"; do
+for file in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json" "CLAUDE.md" "LICENSE"; do
     if [ -f "$file" ]; then
         ok "$file exists"
     else
         error "$file not found"
     fi
 done
+
+# Check claude command
+echo ""
+echo "=== Command Check ==="
+
+if command -v claude &> /dev/null; then
+    ok "claude command found"
+else
+    error "claude command not found. Please install Claude Code CLI."
+fi
 
 # Validate JSON files
 echo ""
@@ -56,6 +66,23 @@ if [ -f "$PLUGIN_JSON" ]; then
         ok "$PLUGIN_JSON is valid JSON"
     else
         error "$PLUGIN_JSON is invalid JSON"
+    fi
+fi
+
+MARKETPLACE_JSON=".claude-plugin/marketplace.json"
+if [ -f "$MARKETPLACE_JSON" ]; then
+    if jq empty "$MARKETPLACE_JSON" 2>/dev/null; then
+        ok "$MARKETPLACE_JSON is valid JSON"
+        # Official validation
+        if command -v claude &> /dev/null; then
+            if claude plugin validate . &> /dev/null; then
+                ok "marketplace validation passed"
+            else
+                error "marketplace validation failed (claude plugin validate .)"
+            fi
+        fi
+    else
+        error "$MARKETPLACE_JSON is invalid JSON"
     fi
 fi
 

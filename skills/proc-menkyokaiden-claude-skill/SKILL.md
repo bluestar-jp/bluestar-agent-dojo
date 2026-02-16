@@ -31,7 +31,12 @@ disable-model-invocation: true
    - proc-* スキルの `disable-model-invocation: true` 確認
    - ドラフト状態のスキルは検証スキップ
 
-4. **バージョン検証**
+4. **マーケットプレイス検証**
+   - `.claude-plugin/marketplace.json` の存在確認
+   - `claude plugin validate .` による整合性チェック
+   - すべての非ドラフトスキルがマーケットプレイスに登録されていること
+
+5. **バージョン検証**
    - plugin.json のバージョンがセマンティックバージョニング形式であること
 
 ### Phase 2: Agree（確認）
@@ -40,6 +45,7 @@ disable-model-invocation: true
 
 - 検証対象のエージェント数
 - 検証対象のスキル数
+- マーケットプレイスに登録されているプラグイン数
 - ドラフトとしてスキップするリソース
 
 ### Phase 3: Execute（検証実行）
@@ -64,25 +70,22 @@ npx markdownlint-cli2 "**/*.md"
 
 ## 検証チェックリスト
 
-### plugin.json
+### plugin.json / marketplace.json
 
 - [ ] `.claude-plugin/plugin.json` が存在する
+- [ ] `.claude-plugin/marketplace.json` が存在する
+- [ ] `claude plugin validate .` がパスする
 - [ ] `name` フィールドが設定されている
 - [ ] `version` フィールドがセマンティックバージョニング形式
 - [ ] `agents` と `skills` パスが正しい
 
-### エージェント
+### エージェント / スキル
 
 - [ ] すべての非ドラフトエージェントにフロントマターがある
-- [ ] `name` フィールドがファイル名と一致
-- [ ] `description` フィールドが設定されている
-
-### スキル
-
 - [ ] すべての非ドラフトスキルにフロントマターがある
-- [ ] `name` フィールドが設定されている
-- [ ] `description` に「いつ使うか」が明記されている
-- [ ] proc-* スキルに `disable-model-invocation: true` がある
+- [ ] すべてのスキルが `marketplace.json` に登録されている
+- [ ] `name` フィールドがファイル名またはディレクトリ名と一致
+- [ ] `description` フィールドが設定されている
 
 ## エラーハンドリング
 

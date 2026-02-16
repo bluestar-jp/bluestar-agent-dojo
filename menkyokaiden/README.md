@@ -140,7 +140,48 @@ bluestar-agent-dojo/
 └── CLAUDE.md                    # Claude Code向けシステムプロンプト
 ```
 
-## 5. 関連スキル
+## 6. マーケットプレイスの管理
+
+本プロジェクトでは、スキルを個別に配布・インストール可能にするためのマーケットプレイス機能を提供しています。設定は `.claude-plugin/marketplace.json` で管理されます。
+
+### 6.1 marketplace.json の役割
+
+`marketplace.json` は、プロジェクト内の各スキルを独立したプラグインとして定義し、ユーザーが `/plugin install` コマンドで必要なものだけを選択して導入できるようにするカタログです。
+
+### 6.2 新規スキルの追加手順
+
+新しいスキル（`skills/` ディレクトリ配下）を作成した際は、以下の手順でマーケットプレイスに登録します。
+
+1. **スキルの完成**: `SKILL.md` を作成し、検証をパスさせる。
+2. **marketplace.json への追記**: `plugins` 配列に新しいエントリを追加する。
+
+   ```json
+   {
+     "name": "your-new-skill-name",
+     "source": "./skills/your-new-skill-name",
+     "description": "スキルの簡潔な説明（SKILL.mdと同期させる）"
+   }
+   ```
+
+3. **バリデーション**: `make validate` を実行し、マーケットプレイスの整合性を確認する。
+
+### 6.3 外部への配布とインストール
+
+外部ユーザーはこのリポジトリをマーケットプレイスとして登録することで、スキルを利用できます。
+
+1. **マーケットプレイスの追加**:
+
+   ```bash
+   /plugin marketplace add https://github.com/bluestar-jp/bluestar-agent-dojo.git
+   ```
+
+2. **スキルのインストール**:
+
+   ```bash
+   /plugin install skill-name@bluestar-agent-dojo
+   ```
+
+## 7. 関連スキル
 
 詳細なワークフローは以下のスキルを参照:
 
