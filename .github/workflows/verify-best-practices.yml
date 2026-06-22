@@ -33,7 +33,7 @@ jobs:
     timeout-minutes: 5  # タイムアウト設定: 5分で停止
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Python
         uses: actions/setup-python@v6
